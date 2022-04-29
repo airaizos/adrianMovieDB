@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+class FavoritesPresenter: FavoritesPresenterContract {
+    var view: FavoritesViewControllerContract?
+    var interactor: FavoritesInteractorContract?
+    var wireframe: FavoritesWireframeContract?
+    
+}

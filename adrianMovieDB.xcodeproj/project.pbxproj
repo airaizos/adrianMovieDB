@@ -182,11 +182,11 @@
 		3A083466281AA8E1003C7408 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				3A08346E281AAA8A003C7408 /* PopularContract.swift */,
+				3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */,
 				3A083468281AA941003C7408 /* PopularVIewController.storyboard */,
 				3A08346A281AA961003C7408 /* PopularViewController.swift */,
 				3A08348F281AAECF003C7408 /* PupularViewCell.swift */,
-				3A08346E281AAA8A003C7408 /* PopularContract.swift */,
-				3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */,
 				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
 				3A083474281AAB05003C7408 /* PopularInteractor.swift */,
 				3A083477281AAB1A003C7408 /* PopularWireframe.swift */,

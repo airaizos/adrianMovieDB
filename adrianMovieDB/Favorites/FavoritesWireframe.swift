@@ -6,5 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
-
+class FavoritesWireframe: FavoritesWireframeContract {
+    var view: UIViewController?
+    func navigateTo() {
+        
+    }
+    
+}
