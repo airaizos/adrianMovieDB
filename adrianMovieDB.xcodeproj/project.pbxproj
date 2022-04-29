@@ -37,6 +37,8 @@
 		3A08348C281AAD2C003C7408 /* FavoriteNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348B281AAD2C003C7408 /* FavoriteNetworkProvider.swift */; };
 		3A08348E281AADD7003C7408 /* InitialControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348D281AADD7003C7408 /* InitialControllerBuilder.swift */; };
 		3A083490281AAECF003C7408 /* PupularViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348F281AAECF003C7408 /* PupularViewCell.swift */; };
+		3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */; };
+		3A0ABEF2281BEAEC000F3912 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		3A08348B281AAD2C003C7408 /* FavoriteNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNetworkProvider.swift; sourceTree = "<group>"; };
 		3A08348D281AADD7003C7408 /* InitialControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialControllerBuilder.swift; sourceTree = "<group>"; };
 		3A08348F281AAECF003C7408 /* PupularViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PupularViewCell.swift; sourceTree = "<group>"; };
+		3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
+		3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
 				3A083474281AAB05003C7408 /* PopularInteractor.swift */,
 				3A083477281AAB1A003C7408 /* PopularWireframe.swift */,
+				3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */,
+				3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				3A083469281AA941003C7408 /* PopularVIewController.storyboard in Resources */,
 				3A083440281AA264003C7408 /* LaunchScreen.storyboard in Resources */,
 				3A08343D281AA264003C7408 /* Assets.xcassets in Resources */,
+				3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */,
 				3A08347A281AAB2F003C7408 /* FavoritesViewController.storyboard in Resources */,
 				3A083438281AA262003C7408 /* Main.storyboard in Resources */,
 			);
@@ -377,6 +384,7 @@
 				3A083478281AAB1A003C7408 /* PopularWireframe.swift in Sources */,
 				3A08348E281AADD7003C7408 /* InitialControllerBuilder.swift in Sources */,
 				3A08343B281AA262003C7408 /* adrianMovieDB.xcdatamodeld in Sources */,
+				3A0ABEF2281BEAEC000F3912 /* MovieViewCell.swift in Sources */,
 				3A083471281AAAE8003C7408 /* PopularControllerBuilder.swift in Sources */,
 				3A08348C281AAD2C003C7408 /* FavoriteNetworkProvider.swift in Sources */,
 				3A08346F281AAA8A003C7408 /* PopularContract.swift in Sources */,
