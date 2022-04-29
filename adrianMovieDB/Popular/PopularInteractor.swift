@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class PopularInteractor: PopularInteractorContract {
+    var popularProvider: PopularProviderContract?
+   
+    func fetchMovies() {
+        popularProvider?.fetchPopular()
+    }
+    
+}

@@ -18,7 +18,7 @@
 		3A083455281AA264003C7408 /* adrianMovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083454281AA264003C7408 /* adrianMovieDBUITests.swift */; };
 		3A083457281AA264003C7408 /* adrianMovieDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083456281AA264003C7408 /* adrianMovieDBUITestsLaunchTests.swift */; };
 		3A083465281AA285003C7408 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A083464281AA285003C7408 /* Alamofire */; };
-		3A083469281AA941003C7408 /* PopularVIewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A083468281AA941003C7408 /* PopularVIewController.storyboard */; };
+		3A083469281AA941003C7408 /* PopularViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A083468281AA941003C7408 /* PopularViewController.storyboard */; };
 		3A08346B281AA961003C7408 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08346A281AA961003C7408 /* PopularViewController.swift */; };
 		3A08346F281AAA8A003C7408 /* PopularContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08346E281AAA8A003C7408 /* PopularContract.swift */; };
 		3A083471281AAAE8003C7408 /* PopularControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */; };
@@ -39,6 +39,7 @@
 		3A083490281AAECF003C7408 /* PupularViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348F281AAECF003C7408 /* PupularViewCell.swift */; };
 		3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */; };
 		3A0ABEF2281BEAEC000F3912 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */; };
+		3A8B631F281BFFAC0016952B /* PopularLocalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B631E281BFFAC0016952B /* PopularLocalProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,7 @@
 		3A083450281AA264003C7408 /* adrianMovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = adrianMovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A083454281AA264003C7408 /* adrianMovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adrianMovieDBUITests.swift; sourceTree = "<group>"; };
 		3A083456281AA264003C7408 /* adrianMovieDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adrianMovieDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3A083468281AA941003C7408 /* PopularVIewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularVIewController.storyboard; sourceTree = "<group>"; };
+		3A083468281AA941003C7408 /* PopularViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularViewController.storyboard; sourceTree = "<group>"; };
 		3A08346A281AA961003C7408 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		3A08346E281AAA8A003C7408 /* PopularContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularContract.swift; sourceTree = "<group>"; };
 		3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularControllerBuilder.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		3A08348F281AAECF003C7408 /* PupularViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PupularViewCell.swift; sourceTree = "<group>"; };
 		3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
 		3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		3A8B631E281BFFAC0016952B /* PopularLocalProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLocalProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +186,7 @@
 			children = (
 				3A08346E281AAA8A003C7408 /* PopularContract.swift */,
 				3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */,
-				3A083468281AA941003C7408 /* PopularVIewController.storyboard */,
+				3A083468281AA941003C7408 /* PopularViewController.storyboard */,
 				3A08346A281AA961003C7408 /* PopularViewController.swift */,
 				3A08348F281AAECF003C7408 /* PupularViewCell.swift */,
 				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				3A083489281AAD20003C7408 /* PopularNetworkProvider.swift */,
+				3A8B631E281BFFAC0016952B /* PopularLocalProvider.swift */,
 				3A08348B281AAD2C003C7408 /* FavoriteNetworkProvider.swift */,
 			);
 			path = Providers;
@@ -337,7 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A083469281AA941003C7408 /* PopularVIewController.storyboard in Resources */,
+				3A083469281AA941003C7408 /* PopularViewController.storyboard in Resources */,
 				3A083440281AA264003C7408 /* LaunchScreen.storyboard in Resources */,
 				3A08343D281AA264003C7408 /* Assets.xcassets in Resources */,
 				3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */,
@@ -377,6 +380,7 @@
 				3A083433281AA262003C7408 /* SceneDelegate.swift in Sources */,
 				3A083475281AAB05003C7408 /* PopularInteractor.swift in Sources */,
 				3A083482281AAB6E003C7408 /* FavoritesPresenter.swift in Sources */,
+				3A8B631F281BFFAC0016952B /* PopularLocalProvider.swift in Sources */,
 				3A083486281AAB86003C7408 /* FavoritesWireframe.swift in Sources */,
 				3A083473281AAAFA003C7408 /* PopularPresenter.swift in Sources */,
 				3A08347C281AAB3E003C7408 /* FavoritesViewController.swift in Sources */,

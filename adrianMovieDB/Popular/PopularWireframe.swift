@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+class PopularWireframe: PopularWireframeContract {
+    var view: UIViewController?
+    
+    func navigateTo() {
+    }
+    
+}

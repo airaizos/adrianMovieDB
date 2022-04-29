@@ -8,20 +8,26 @@
 import Foundation
 import UIKit
 
-protocol PopularViewControllerContract {
+protocol PopularViewControllerContract: UIViewController {
     var presenter: PopularPresenterContract? { get set }
-    func viewDidload()
-    func createFromStoryboard() -> PopularViewController
+    func viewDidLoad()
+    func reloadData()
+    
+   static func createFromStoryboard() -> PopularViewController
 }
 
 protocol PopularPresenterContract {
     var view: PopularViewControllerContract? { get set }
     var interactor: PopularInteractorContract? {  get set }
     var wireframe: PopularWireframeContract? {  get set }
+    
+    func viewDidLoad()
 }
 
 protocol PopularInteractorContract {
-    var PopularProvider: PopularProviderContract? { get set }
+    var popularProvider: PopularProviderContract? { get set }
+    
+    func fetchMovies() 
 }
 
 protocol PopularWireframeContract {
