@@ -9,6 +9,11 @@ import UIKit
 
 class MovieViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var favoriteImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,7 +22,14 @@ class MovieViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+      
     }
 
+    func configure(with cellViewModel: MovieViewCellModel) {
+        movieTitle.text = cellViewModel.title
+        yearLabel.text = cellViewModel.year
+        favoriteImage.image = cellViewModel.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        
+    }
+    
 }

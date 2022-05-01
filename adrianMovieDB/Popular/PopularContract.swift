@@ -20,8 +20,10 @@ protocol PopularPresenterContract {
     var view: PopularViewControllerContract? { get set }
     var interactor: PopularInteractorContract? {  get set }
     var wireframe: PopularWireframeContract? {  get set }
+    var numMovies: Int  { get }
     
     func viewDidLoad()
+    func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
 }
 
 protocol PopularInteractorContract {

@@ -25,3 +25,18 @@ struct Movie: Codable {
      case year = "release_date"
     }
 }
+
+
+struct MovieViewCellModel {
+    let title: String
+    let year: String
+    let favorite: Bool
+}
+
+
+extension Movie {
+    var toTableCellViewModel: MovieViewCellModel {
+        MovieViewCellModel(title: title, year: year, favorite: favorite)
+    }
+    
+}
