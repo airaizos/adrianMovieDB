@@ -16,9 +16,9 @@ class PopularURLSessionProvider: PopularProviderContract {
             guard let data = data else { return }
             do {
                 let decoder = JSONDecoder()
-                let requestData = try decoder.decode([Movie].self, from: data)
+                let requestData = try decoder.decode(MoviesResults.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(requestData))
+                    completion(.success(requestData.results))
                 }
             } catch let error {
                 print("\(error) URLSession")

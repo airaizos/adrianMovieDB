@@ -8,11 +8,11 @@
 import Foundation
 
 struct MoviesResults: Codable {
-    let results: [Movie]
+    var results: [Movie]
 }
 
 struct Movie: Codable {
-    let id: UUID
+    let id: Int
     let title: String
     let favorite: Bool
     let year: String
@@ -20,7 +20,7 @@ struct Movie: Codable {
  enum CodingKeys: String, CodingKey {
      case id
      case title
-     case favorite
+     case favorite = "adult"
      case year = "release_date"
     }
 }
