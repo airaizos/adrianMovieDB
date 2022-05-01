@@ -12,7 +12,6 @@ import UIKit
 class PopularViewController: UIViewController {
     
     var presenter: PopularPresenterContract?
-    
    
     @IBOutlet weak var popularTableView: UITableView!
     
@@ -40,7 +39,8 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "MoviewViewCell", for: indexPath) as? MovieViewCell else {
+            guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath) as? PrototypeCell else {
+        
                 fatalError()
             }
             cell.configure(with: cellViewModel)

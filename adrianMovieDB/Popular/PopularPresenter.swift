@@ -33,9 +33,19 @@ class PopularPresenter: PopularPresenterContract {
     }
     
     func fetchMovies() {
+        interactor?.output = self
         interactor?.fetchMovies()
     }
+}
 
+
+extension PopularPresenter: PopularOutputContract {
     
+    func didFetchFail(movies: [Movie]) {
+        self.movies = movies
+    }
+    func didFetch(movies: [Movie]) {
+        self.movies = movies
+    }
     
 }

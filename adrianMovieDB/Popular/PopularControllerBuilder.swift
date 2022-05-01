@@ -14,11 +14,15 @@ class PopularControllerBuilder {
         let presenter = PopularPresenter()
         let interactor = PopularInteractor()
         let wireframe = PopularWireframe()
+        let fetchMovies = PopularLocalProvider()
         
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.interactor = interactor
         presenter.wireframe = wireframe
+        wireframe.view = viewController
+        
+        interactor.popularProvider = fetchMovies
         
         return viewController
     }

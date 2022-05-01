@@ -7,14 +7,14 @@
 
 import Foundation
 
+enum ProviderError: Error {
+    case badUrl, generic(Error?), unableToFindFile, parseError(Error?)
+}
 
 class PopularLocalProvider: PopularProviderContract {
     var movies = [Movie]()
     
-    func fetchPopular() {
-        movies.append(Movie(id: UUID(), title: "La familia Bellie", favorite: true, year: "2014"))
-        
+    func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void) {
+        completion(.success([Movie(id: UUID(), title: "La familia Bellie", favorite: true, year: "2014")]))
     }
-    
-    
 }

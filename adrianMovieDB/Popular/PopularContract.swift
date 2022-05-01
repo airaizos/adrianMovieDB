@@ -28,7 +28,7 @@ protocol PopularPresenterContract {
 
 protocol PopularInteractorContract {
     var popularProvider: PopularProviderContract? { get set }
-    
+    var output: PopularOutputContract? { get set }
     func fetchMovies() 
 }
 
@@ -38,6 +38,11 @@ protocol PopularWireframeContract {
 }
 
 protocol PopularProviderContract {
-    func fetchPopular()
+    func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void)
     
+}
+
+protocol PopularOutputContract {
+    func didFetch(movies: [Movie])
+    func didFetchFail(movies: [Movie])
 }

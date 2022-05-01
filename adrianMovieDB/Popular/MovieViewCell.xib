@@ -11,7 +11,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieViewCell" rowHeight="55" id="dgt-XK-kWw" customClass="MovieViewCell" customModule="adrianMovieDB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="474" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgt-XK-kWw" id="kPs-jj-ebc">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgt-XK-kWw" id="kPs-jj-ebc" customClass="MovieViewCell" customModule="adrianMovieDB" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="474" height="55"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
