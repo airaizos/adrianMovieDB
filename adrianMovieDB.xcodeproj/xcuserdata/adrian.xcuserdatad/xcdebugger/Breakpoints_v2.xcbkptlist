@@ -3,4 +3,86 @@
    uuid = "030AD4C4-F2CC-4F8E-BCE5-936ADE3EA830"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "383F22D8-743B-414F-A244-F1E0990381FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "adrianMovieDB/Popular/MovieViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "configure(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "470C7B19-7876-40D3-A9C8-532E1337239E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "adrianMovieDB/Providers/PopularAFProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "fetchPopular(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7C5B81C-C36E-4AE3-861A-C6B55F2954EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "adrianMovieDB/Providers/PopularURLSessionProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetchPopular(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F7C5B81C-C36E-4AE3-861A-C6B55F2954EC - 6b85d76a5e2f379f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in adrianMovieDB.PopularURLSessionProvider.fetchPopular((Swift.Result&lt;Swift.Array&lt;adrianMovieDB.Movie&gt;, adrianMovieDB.ProviderError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "adrianMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/PopularURLSessionProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "F7C5B81C-C36E-4AE3-861A-C6B55F2954EC - 6b85d76a5e2f379f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in adrianMovieDB.PopularURLSessionProvider.fetchPopular((Swift.Result&lt;Swift.Array&lt;adrianMovieDB.Movie&gt;, adrianMovieDB.ProviderError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "adrianMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/PopularURLSessionProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "1192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

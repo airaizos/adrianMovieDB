@@ -16,19 +16,21 @@ class MovieViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     func configure(with cellViewModel: MovieViewCellModel) {
-        movieTitle.text = cellViewModel.title
-        yearLabel.text = cellViewModel.year
-        favoriteImage.image = cellViewModel.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         
+        yearLabel.text = "cellViewModel.year"
+        
+        /*
+        movieTitle.text = "titulo"
+        yearLabel.text = "año"
+        favoriteImage.image = cellViewModel.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        */
     }
     
 }

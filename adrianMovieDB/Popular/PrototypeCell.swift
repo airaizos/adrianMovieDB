@@ -15,7 +15,6 @@ class PrototypeCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,7 +22,7 @@ class PrototypeCell: UITableViewCell {
 
     }
 
-    func configure(with  cellViewModel: MovieViewCellModel) {
+    func configure(with cellViewModel: MovieViewCellModel) {
         
         titleLabel.text = cellViewModel.title
         labelLabel.text = cellViewModel.year

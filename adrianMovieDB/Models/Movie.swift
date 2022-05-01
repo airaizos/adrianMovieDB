@@ -9,7 +9,6 @@ import Foundation
 
 struct MoviesResults: Codable {
     let results: [Movie]
-    
 }
 
 struct Movie: Codable {
@@ -26,7 +25,6 @@ struct Movie: Codable {
     }
 }
 
-
 struct MovieViewCellModel {
     let title: String
     let year: String
@@ -38,5 +36,4 @@ extension Movie {
     var toTableCellViewModel: MovieViewCellModel {
         MovieViewCellModel(title: title, year: year, favorite: favorite)
     }
-    
 }

@@ -11,7 +11,8 @@ enum ProviderError: Error {
     case badUrl, generic(Error?), unableToFindFile, parseError(Error?)
 }
 
-class PopularLocalProvider: PopularProviderContract {
+class PopularLocalProvider {
+    //class PopularLocalProvider: PopularProviderContract {
     var movies = [Movie]()
     
     func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void) {

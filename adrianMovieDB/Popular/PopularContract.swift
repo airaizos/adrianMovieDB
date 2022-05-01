@@ -46,3 +46,15 @@ protocol PopularOutputContract {
     func didFetch(movies: [Movie])
     func didFetchFail(movies: [Movie])
 }
+
+//FILM
+
+protocol PopularProviderFilmContract {
+    func fetchPopular(_ completion: @escaping(Result<[Film],ProviderError>)-> Void)
+    
+}
+
+protocol PopularOutputFilmContract {
+    func didFetch(movies: [Film])
+    func didFetchFail(movies: [Film])
+}

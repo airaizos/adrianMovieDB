@@ -44,9 +44,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="favoriteImage" destination="RON-5G-VwS" id="9L6-QO-iIp"/>
-                <outlet property="movieTitle" destination="3X0-he-aIj" id="dyU-vc-pWw"/>
-                <outlet property="yearLabel" destination="sjM-uV-hfE" id="bLz-1N-f1O"/>
+                <outlet property="favoriteImage" destination="RON-5G-VwS" id="bxp-En-V5U"/>
+                <outlet property="movieTitle" destination="3X0-he-aIj" id="Jxs-GI-45a"/>
+                <outlet property="yearLabel" destination="sjM-uV-hfE" id="gLN-cW-QBG"/>
             </connections>
             <point key="canvasLocation" x="252.17391304347828" y="52.566964285714285"/>
         </tableViewCell>

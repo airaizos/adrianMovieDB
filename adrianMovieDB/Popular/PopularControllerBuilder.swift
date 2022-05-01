@@ -14,7 +14,7 @@ class PopularControllerBuilder {
         let presenter = PopularPresenter()
         let interactor = PopularInteractor()
         let wireframe = PopularWireframe()
-        let fetchMovies = PopularLocalProvider()
+        let fetchMovies = PopularURLSessionProvider()
         
         viewController.presenter = presenter
         presenter.view = viewController
