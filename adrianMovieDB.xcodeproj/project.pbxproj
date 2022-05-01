@@ -36,7 +36,6 @@
 		3A08348A281AAD20003C7408 /* PopularAFProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A083489281AAD20003C7408 /* PopularAFProvider.swift */; };
 		3A08348C281AAD2C003C7408 /* FavoriteAFProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348B281AAD2C003C7408 /* FavoriteAFProvider.swift */; };
 		3A08348E281AADD7003C7408 /* InitialControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A08348D281AADD7003C7408 /* InitialControllerBuilder.swift */; };
-		3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */; };
 		3A0ABEF2281BEAEC000F3912 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */; };
 		3A0E88CA281E912B008C7AB8 /* PrototypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E88C9281E912B008C7AB8 /* PrototypeCell.swift */; };
 		3A8B4A55281EA34000AC7344 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4A54281EA34000AC7344 /* Film.swift */; };
@@ -94,7 +93,6 @@
 		3A083489281AAD20003C7408 /* PopularAFProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAFProvider.swift; sourceTree = "<group>"; };
 		3A08348B281AAD2C003C7408 /* FavoriteAFProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAFProvider.swift; sourceTree = "<group>"; };
 		3A08348D281AADD7003C7408 /* InitialControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialControllerBuilder.swift; sourceTree = "<group>"; };
-		3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
 		3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		3A0E88C9281E912B008C7AB8 /* PrototypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCell.swift; sourceTree = "<group>"; };
 		3A8B4A54281EA34000AC7344 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
 				3A083474281AAB05003C7408 /* PopularInteractor.swift */,
 				3A083477281AAB1A003C7408 /* PopularWireframe.swift */,
-				3A0ABEEF281BEAAB000F3912 /* MovieViewCell.xib */,
 				3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */,
 				3A0E88C9281E912B008C7AB8 /* PrototypeCell.swift */,
 			);
@@ -349,7 +346,6 @@
 				3A083469281AA941003C7408 /* PopularViewController.storyboard in Resources */,
 				3A083440281AA264003C7408 /* LaunchScreen.storyboard in Resources */,
 				3A08343D281AA264003C7408 /* Assets.xcassets in Resources */,
-				3A0ABEF0281BEAAB000F3912 /* MovieViewCell.xib in Resources */,
 				3A08347A281AAB2F003C7408 /* FavoritesViewController.storyboard in Resources */,
 				3A083438281AA262003C7408 /* Main.storyboard in Resources */,
 			);

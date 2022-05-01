@@ -11,8 +11,6 @@ class MovieViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var favoriteImage: UIImageView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +22,10 @@ class MovieViewCell: UITableViewCell {
 
     func configure(with cellViewModel: MovieViewCellModel) {
         
-        yearLabel.text = "cellViewModel.year"
+        movieTitle.text = cellViewModel.title
+        yearLabel.text = cellViewModel.year
+        
+        
         
         /*
         movieTitle.text = "titulo"

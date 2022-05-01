@@ -54,7 +54,6 @@ extension PopularPresenter: PopularOutputContract {
     }
 }
 
-
 extension PopularPresenter {
     func didSearch(with searchText: String) {
         

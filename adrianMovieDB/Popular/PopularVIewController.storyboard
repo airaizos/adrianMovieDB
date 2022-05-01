@@ -20,32 +20,45 @@
                                 <rect key="frame" x="0.0" y="133" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypeCell" textLabel="jAr-QF-pNu" detailTextLabel="ssN-qF-obJ" style="IBUITableViewCellStyleSubtitle" id="Duz-E6-M0a" customClass="PrototypeCell" customModule="adrianMovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieViewCell" rowHeight="55" id="Duz-E6-M0a" customClass="MovieViewCell" customModule="adrianMovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Duz-E6-M0a" id="wXG-2H-bbk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jAr-QF-pNu">
-                                                    <rect key="frame" x="20" y="6" width="25" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-XY-07s">
+                                                    <rect key="frame" x="40" y="5" width="30" height="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ssN-qF-obJ">
-                                                    <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVt-cb-KV7">
+                                                    <rect key="frame" x="40" y="36.5" width="23.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evh-59-QWR">
+                                                    <rect key="frame" x="10" y="17" width="20" height="22"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="⭐️"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="evh-59-QWR" firstAttribute="top" secondItem="wXG-2H-bbk" secondAttribute="top" constant="17" id="3Xh-QF-UNA"/>
+                                                <constraint firstAttribute="bottom" secondItem="evh-59-QWR" secondAttribute="bottom" constant="16" id="4gM-Np-2a0"/>
+                                                <constraint firstItem="ewh-XY-07s" firstAttribute="leading" secondItem="wXG-2H-bbk" secondAttribute="leading" constant="40" id="8GX-oQ-ilQ"/>
+                                                <constraint firstItem="ewh-XY-07s" firstAttribute="leading" secondItem="evh-59-QWR" secondAttribute="trailing" constant="10" id="Op5-vE-9U8"/>
+                                                <constraint firstAttribute="bottom" secondItem="IVt-cb-KV7" secondAttribute="bottom" constant="5" id="dAq-qZ-eyl"/>
+                                                <constraint firstItem="IVt-cb-KV7" firstAttribute="leading" secondItem="wXG-2H-bbk" secondAttribute="leading" constant="40" id="ez8-v9-Gvz"/>
+                                                <constraint firstItem="evh-59-QWR" firstAttribute="leading" secondItem="wXG-2H-bbk" secondAttribute="leading" constant="10" id="gxI-X8-mst"/>
+                                                <constraint firstItem="ewh-XY-07s" firstAttribute="top" secondItem="wXG-2H-bbk" secondAttribute="top" constant="5" id="i6g-AL-d0w"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="labelLabel" destination="ssN-qF-obJ" id="wxU-W8-MrH"/>
-                                            <outlet property="titleLabel" destination="jAr-QF-pNu" id="gaP-I9-Wh0"/>
+                                            <outlet property="movieTitle" destination="ewh-XY-07s" id="BTk-Fe-1AJ"/>
+                                            <outlet property="yearLabel" destination="IVt-cb-KV7" id="N4L-wM-32m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
