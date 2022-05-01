@@ -82,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="popularTableView" destination="qYg-A8-gvh" id="GZU-jV-T6Q"/>
+                        <outlet property="searchBar" destination="fPB-C6-y7g" id="rar-Or-HVT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

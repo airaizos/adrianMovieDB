@@ -12,7 +12,8 @@ import UIKit
 class PopularViewController: UIViewController {
     
     var presenter: PopularPresenterContract?
-   
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var popularTableView: UITableView!
     
     func reloadData(){
@@ -24,9 +25,11 @@ class PopularViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         popularTableView.dataSource = self
         popularTableView.delegate = self
         presenter?.viewDidLoad()
+        searchBar.delegate = self
     }
 }
 
@@ -55,4 +58,12 @@ extension PopularViewController: PopularViewControllerContract {
    static func createFromStoryboard() -> PopularViewController {
        return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
    }
+}
+
+
+extension PopularViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter?.didSearch(with: searchText)
+    }
 }

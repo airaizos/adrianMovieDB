@@ -24,6 +24,7 @@ protocol PopularPresenterContract {
     
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
+    func didSearch(with searchText: String)
 }
 
 protocol PopularInteractorContract {

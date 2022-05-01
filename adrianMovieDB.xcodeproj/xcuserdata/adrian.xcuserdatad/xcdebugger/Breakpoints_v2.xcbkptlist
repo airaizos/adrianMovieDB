@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "383F22D8-743B-414F-A244-F1E0990381FA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "adrianMovieDB/Popular/MovieViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "configure(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "470C7B19-7876-40D3-A9C8-532E1337239E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -39,49 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E028FE70-6119-4B0F-8EA7-B0651192B319"
+            uuid = "0EF2C9D1-9FF4-4DE7-A060-4FA9371D2DEB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "adrianMovieDB/Providers/PopularURLSessionProvider.swift"
+            filePath = "adrianMovieDB/Popular/PopularPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "fetchPopular(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E028FE70-6119-4B0F-8EA7-B0651192B319 - 6b85d76a5e2f379f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in adrianMovieDB.PopularURLSessionProvider.fetchPopular((Swift.Result&lt;Swift.Array&lt;adrianMovieDB.Movie&gt;, adrianMovieDB.ProviderError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "adrianMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/PopularURLSessionProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "1076">
-               </Location>
-               <Location
-                  uuid = "E028FE70-6119-4B0F-8EA7-B0651192B319 - 6b85d76a5e2f379f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in adrianMovieDB.PopularURLSessionProvider.fetchPopular((Swift.Result&lt;Swift.Array&lt;adrianMovieDB.Movie&gt;, adrianMovieDB.ProviderError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "adrianMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/PopularURLSessionProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "1172">
-               </Location>
-            </Locations>
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "movies"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
