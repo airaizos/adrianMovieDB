@@ -27,7 +27,7 @@ class PopularPresenter: PopularPresenterContract {
         }
     }
     private var filteredMovies: [Movie]!
-    private var favoritesMovies = [Int]()
+    private var favoritesMovies = [Movie]()
     // TODO: Index out of range movies ≭ filteredMovies
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel {
         let movie = filteredMovies[IndexPath.row]
@@ -83,8 +83,8 @@ extension PopularPresenter {
     func didSelectFavorite(at indexPath: IndexPath) {
         let movie = filteredMovies[indexPath.row]
         
-        if !favoritesMovies.contains(movie.id) {
-            favoritesMovies.append(movie.id)
+        if !favoritesMovies.contains(movie) {
+            favoritesMovies.append(movie)
             
             view?.setFavorite(true, at: indexPath)
         } else if let index = filteredMovies.firstIndex(of: movie) {
@@ -94,7 +94,7 @@ extension PopularPresenter {
     }
     
     func isFavorite(at indexPath: IndexPath) -> Bool {
-        let movie = filteredMovies[indexPath.row] //filteredMovies[indexPath.row]
-        return favoritesMovies.contains(movie.id)
+        let movie = filteredMovies[indexPath.row]
+        return favoritesMovies.contains(movie)
     }
 }
