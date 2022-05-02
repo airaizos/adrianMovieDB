@@ -51,7 +51,7 @@ protocol PopularOutputContract {
     func didFetch(movies: [Movie])
     func didFetchFail(movies: [Movie])
     
-   
+    func didUpdateFavorites(in movie: Movie, favorite: Bool)
 }
 
 protocol PopularTableViewDelegate {

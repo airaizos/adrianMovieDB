@@ -33,4 +33,5 @@ protocol FavoritesWireframeContract {
 
 protocol FavoritesProviderContract {
     
+   // var favorites: [String] {  get set }
 }

@@ -10,13 +10,23 @@ import Foundation
 class PopularInteractor: PopularInteractorContract {
     var popularProvider: PopularProviderContract?
     var output: PopularOutputContract?
-    var favoritesProvider: FavoritesProviderContract?
+   // var favoritesProvider: FavoritesProviderContract?
     
-    private var favorites: [Int]() {
-        get {
-            favoritesProvider.
-        }
+    private static var favoritesKey = "favorites.movie.array"
+    private let userDefaults: UserDefaults
+    init(userDefaults: UserDefaults = UserDefaults.standard) {
+        self.userDefaults = userDefaults
     }
+    
+    private var favorites : [String]   {
+        get {
+            userDefaults.stringArray(forKey: PopularInteractor.favoritesKey) ?? []
+            }
+            set {
+                userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
+            }
+        }
+    
     
     func fetchMovies() {
         popularProvider?.fetchPopular( { result in
@@ -30,7 +40,15 @@ class PopularInteractor: PopularInteractorContract {
 }
 
 extension PopularInteractor {
-    //Favorites en interactor
-  //  private let fileManager??
+//TODO: quitar el bang!
     
+    func didPressFavorite(in movie: Movie) {
+        if !favorites.contains(String(movie.id)) {
+            favorites.append(String(movie.id))
+            output?.didUpdateFavorites(in: movie, favorite: true)
+        }  else if let index = favorites.firstIndex(of: String(movie.id)) {
+            favorites.remove(at: index)
+            output?.didUpdateFavorites(in: movie, favorite: false)
+        }
+    }
 }
