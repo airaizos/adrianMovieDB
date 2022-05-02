@@ -13,16 +13,21 @@ protocol FavoritesViewControllerContract {
     var presenter: FavoritesPresenterContract? { get set }
     func viewDidLoad()
    static func createFromStoryboard() -> FavoritesViewController
+    func reloadData()
+    
 }
 
 protocol FavoritesPresenterContract {
     var view: FavoritesViewControllerContract? { get set }
-    var interactor: FavoritesInteractorContract? {  get set }
+    var interactor: PopularInteractorContract? {  get set }
     var wireframe: FavoritesWireframeContract? {  get set }
+    var numMovies: Int { get }
+    func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
+    func viewDidLoad()
+    
 }
 
 protocol FavoritesInteractorContract {
-    var favoritesProvider: FavoritesProviderContract? { get set }
     
 }
 

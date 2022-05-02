@@ -8,6 +8,6 @@
 import Foundation
 
 class FavoritesInteractor: FavoritesInteractorContract {
-    var favoritesProvider: FavoritesProviderContract?
+ //   var favoritesProvider: ?
     
 }

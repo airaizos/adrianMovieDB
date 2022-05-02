@@ -10,7 +10,6 @@ import Foundation
 class PopularInteractor: PopularInteractorContract {
     var popularProvider: PopularProviderContract?
     var output: PopularOutputContract?
-   // var favoritesProvider: FavoritesProviderContract?
     
     private static var favoritesKey = "favorites.movie.array"
     private let userDefaults: UserDefaults
@@ -22,11 +21,10 @@ class PopularInteractor: PopularInteractorContract {
         get {
             userDefaults.stringArray(forKey: PopularInteractor.favoritesKey) ?? []
             }
-            set {
+        set {
                 userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
             }
         }
-    
     
     func fetchMovies() {
         popularProvider?.fetchPopular( { result in
@@ -40,7 +38,6 @@ class PopularInteractor: PopularInteractorContract {
 }
 
 extension PopularInteractor {
-//TODO: quitar el bang!
     
     func didPressFavorite(in movie: Movie) {
         if !favorites.contains(String(movie.id)) {
