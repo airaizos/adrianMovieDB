@@ -11,7 +11,7 @@ class PopularInteractor: PopularInteractorContract {
     var popularProvider: PopularProviderContract?
     var output: PopularOutputContract?
     
-    private static var favoritesKey = "favorites.movie.array"
+    private static var favoritesKey = "favorites.popular.movie.array"
     private let userDefaults: UserDefaults
     init(userDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults

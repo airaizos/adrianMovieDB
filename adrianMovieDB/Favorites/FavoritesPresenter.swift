@@ -9,20 +9,19 @@ import Foundation
 import UIKit
 
 class FavoritesPresenter: FavoritesPresenterContract {
-    
+
     var view: FavoritesViewControllerContract?
-    var interactor: PopularInteractorContract?
+    var interactor: FavoritesInteractorContract?
     var wireframe: FavoritesWireframeContract?
+    var favoriteProvider: FavoriteLocalProvider?
     
     var numMovies: Int {
         favoriteMovies.count
     }
     
-    private var movies = [Movie]()
-    private var idMovies = 860623
-    private var favoriteMovies = [Movie]() {
+    private var favoriteMovies = [Movie(id: 1, title: "title", favorite: true, year: "")] {
         didSet {
-            favoriteMovies = movies.filter{ $0.id == idMovies }
+            favoriteMovies = favoriteProvider?.favoriteMovies ?? [Movie(id: 2, title: "favoriteProvider", favorite: true, year: "")]
             view?.reloadData()
             }
     }
@@ -35,22 +34,21 @@ class FavoritesPresenter: FavoritesPresenterContract {
         let movie = favoriteMovies[IndexPath.row]
         return movie.toTableCellViewModel
     }
+}
+
+extension FavoritesPresenter: FavoritesOutputContract {
+    
+    func getFavoritesFail(movies: [Movie]) {
+        self.favoriteMovies = movies
+    }
     
     func getFavorites() {
         interactor?.output = self
+        interactor?.getFavorites(movies: favoriteMovies)
     }
-}
-
-extension FavoritesPresenter: PopularOutputContract {
-    func didFetch(movies: [Movie]) {
-        
-    }
-    
-    func didFetchFail(movies: [Movie]) {
-        
-    }
-    
-    func didUpdateFavorites(in movie: Movie, favorite: Bool) {
-        
+  
+    func getFavorites(movies: [Movie]) {
+        self.favoriteMovies = movies
+        //vacio
     }
 }

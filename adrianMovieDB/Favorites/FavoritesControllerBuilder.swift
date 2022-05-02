@@ -12,13 +12,16 @@ class FavoritesControllerBuilder {
     func build() -> UIViewController {
         let viewController = FavoritesViewController.createFromStoryboard()
         let presenter = FavoritesPresenter()
-        let interactor = PopularInteractor()
+        let interactor = FavoritesInteractor()
         let wireframe = FavoritesWireframe()
+        let getFavoriteMovies = FavoriteLocalProvider()
         
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.interactor = interactor
         presenter.wireframe = wireframe
+        
+        interactor.favoritesProvider = getFavoriteMovies
         
         return viewController
     }

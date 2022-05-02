@@ -8,6 +8,23 @@
 import Foundation
 
 class FavoritesUserDefaultsProvider: FavoritesProviderContract {
+    func copyFavorites(_ movies: [Movie]) {
+        
+    }
+    
+    func saveFavorite(_ movie: Movie) {
+        
+    }
+    
+    func removeFavoriteAt(_ index: Int) {
+        
+    }
+    
+    func getFavorites(_ completion: @escaping (Result<[Movie], ProviderError>) -> Void) {
+        
+    }
+    
+    var favoriteMovies = [Movie]()
     
     private static var favoritesKey = "favorites.movies.array"
     

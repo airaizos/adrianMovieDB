@@ -11,6 +11,7 @@ class PopularPresenter: PopularPresenterContract {
     var view: PopularViewControllerContract?
     var interactor: PopularInteractorContract?
     var wireframe: PopularWireframeContract?
+    var favoriteProvider: FavoriteLocalProvider?
     
     var numMovies: Int {
         if filteredMovies == nil {
@@ -85,10 +86,14 @@ extension PopularPresenter {
         
         if !favoritesMovies.contains(movie) {
             favoritesMovies.append(movie)
+  //          favoriteProvider?.saveFavorite(movie)
+    //       favoriteProvider?.copyFavorites(self.favoritesMovies)
+            favoriteProvider?.favoriteMovies = self.favoritesMovies
             
             view?.setFavorite(true, at: indexPath)
         } else if let index = filteredMovies.firstIndex(of: movie) {
             filteredMovies.remove(at: index)
+            favoriteProvider?.removeFavoriteAt(index)
             view?.setFavorite(false, at: indexPath)
         }
     }

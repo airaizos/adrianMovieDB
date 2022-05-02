@@ -3,31 +3,31 @@
 //  adrianMovieDB
 //
 //  Created by Adrian Iraizos Mendoza on 28/4/22.
-//TODO: obtener ids y mostrar peliculas
 
 import UIKit
 
 class FavoritesViewController: UIViewController {
     var presenter: FavoritesPresenterContract?
     
+    @IBOutlet weak var favoritesMoviesTableView: UITableView!
+    
     func reloadData() {
         DispatchQueue.main.async {
             self.favoritesMoviesTableView.reloadData()
         }
     }
-
-    @IBOutlet weak var favoritesMoviesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoritesMoviesTableView.dataSource = self
+        favoritesMoviesTableView.delegate = self
         presenter?.viewDidLoad()
     }
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
-        presenter?.numMovies ?? 0
+        presenter?.numMovies ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,9 +38,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: cellViewModel)
         return cell
     }
-    
 }
-
 
 extension FavoritesViewController: FavoritesViewControllerContract {
 
@@ -48,5 +46,4 @@ extension FavoritesViewController: FavoritesViewControllerContract {
         
        return UIStoryboard(name: "FavoritesViewController", bundle: .main).instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
     }
-
 }

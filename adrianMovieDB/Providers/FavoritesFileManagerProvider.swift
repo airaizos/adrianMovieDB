@@ -8,6 +8,23 @@
 import Foundation
 
 class FavoritesFileManagerProvider: FavoritesProviderContract {
+    func copyFavorites(_ movies: [Movie]) {
+        
+    }
+    
+    func saveFavorite(_ movie: Movie) {
+        
+    }
+    
+    func removeFavoriteAt(_ index: Int) {
+        
+    }
+    
+    func getFavorites(_ completion: @escaping (Result<[Movie], ProviderError>) -> Void) {
+        
+    }
+    
+    var favoriteMovies = [Movie]()
     
     private let fileManager: FileManager
     private let fileName: String

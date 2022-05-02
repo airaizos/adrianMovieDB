@@ -19,16 +19,18 @@ protocol FavoritesViewControllerContract {
 
 protocol FavoritesPresenterContract {
     var view: FavoritesViewControllerContract? { get set }
-    var interactor: PopularInteractorContract? {  get set }
+    var interactor: FavoritesInteractorContract? {  get set }
     var wireframe: FavoritesWireframeContract? {  get set }
     var numMovies: Int { get }
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func viewDidLoad()
-    
+    func getFavorites()
 }
 
 protocol FavoritesInteractorContract {
-    
+    var favoritesProvider: FavoritesProviderContract? { get set }
+    var output: FavoritesOutputContract? { get set }
+    func getFavorites(movies: [Movie]) 
 }
 
 protocol FavoritesWireframeContract {
@@ -37,6 +39,14 @@ protocol FavoritesWireframeContract {
 }
 
 protocol FavoritesProviderContract {
-    
-   // var favorites: [String] {  get set }
+    var favoriteMovies: [Movie] { get set }
+    func getFavorites(_ completion: @escaping(Result<[Movie],ProviderError>) -> Void)
+    func saveFavorite(_ movie: Movie)
+    func removeFavoriteAt(_ index: Int)
+    func copyFavorites(_ movies: [Movie]) 
+}
+
+protocol FavoritesOutputContract {
+    func getFavorites(movies: [Movie])
+    func getFavoritesFail(movies: [Movie])
 }
