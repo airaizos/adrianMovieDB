@@ -28,6 +28,7 @@ protocol PopularPresenterContract {
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)
     func didSelectFavorite(at indexPath: IndexPath)
+    func isFavorite(at indexPath: IndexPath) -> Bool
 }
 
 protocol PopularInteractorContract {

@@ -20,7 +20,7 @@ class PopularPresenter: PopularPresenterContract {
         }
     }
     
-    private var filteredMovies: [Movie]!
+    
     
     private var movies = [Movie]() {
         didSet {
@@ -28,7 +28,7 @@ class PopularPresenter: PopularPresenterContract {
             view?.reloadData()
         }
     }
-    
+    private var filteredMovies: [Movie]!
     private var favoritesMovies = [Int]()
     
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel {
@@ -89,6 +89,14 @@ extension PopularPresenter {
             favoritesMovies.append(movie.id)
             
             view?.setFavorite(true, at: indexPath)
+        } else if let index = filteredMovies.firstIndex(of: movie) {
+            filteredMovies.remove(at: index)
+            view?.setFavorite(false, at: indexPath)
         }
+    }
+    
+    func isFavorite(at indexPath: IndexPath) -> Bool {
+        let movie = filteredMovies[indexPath.row]
+        return favoritesMovies.contains(movie.id)
     }
 }

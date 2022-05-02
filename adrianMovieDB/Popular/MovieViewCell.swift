@@ -13,6 +13,8 @@ class MovieViewCell: UITableViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var delegate: PopularTableViewDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -30,8 +32,6 @@ class MovieViewCell: UITableViewCell {
     @IBAction func favoritePressed(_ sender: UIButton) {
         delegate?.didPressInFavorite(cell: self)
     }
-    
-    var delegate: PopularTableViewDelegate?
     
     var isFavorite = false {
         didSet {

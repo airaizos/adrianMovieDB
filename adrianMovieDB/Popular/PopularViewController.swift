@@ -43,8 +43,9 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         
                 fatalError()
             }
+            cell.delegate = self
+            cell.isFavorite = presenter?.isFavorite(at: indexPath) ?? false
             cell.configure(with: cellViewModel)
-            
             return cell
         }
 }
@@ -65,7 +66,7 @@ extension PopularViewController: UISearchBarDelegate {
 }
 
 // MARK: Favorites
-extension PopularViewController {
+extension PopularViewController: PopularTableViewDelegate {
     func didPressInFavorite(cell: MovieViewCell) {
         guard let indexPath = popularTableView.indexPath(for: cell) else { return }
         presenter?.didSelectFavorite(at: indexPath)
