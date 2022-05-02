@@ -154,8 +154,12 @@
 			isa = PBXGroup;
 			children = (
 				3A08348D281AADD7003C7408 /* InitialControllerBuilder.swift */,
-				3A083467281AA8F8003C7408 /* Favorites */,
-				3A083466281AA8E1003C7408 /* Popular */,
+				3A5CBA8128207ACD00EB4192 /* Contracts */,
+				3A5CBA8028207AC200EB4192 /* Builders */,
+				3A5CBA7C28207A8800EB4192 /* UI */,
+				3A5CBA7D28207A8F00EB4192 /* Presenters */,
+				3A5CBA7E28207A9800EB4192 /* Interactors */,
+				3A5CBA7F28207AA200EB4192 /* Wireframes */,
 				3A08346D281AA9AF003C7408 /* Providers */,
 				3A08346C281AA9A6003C7408 /* Models */,
 				3A083430281AA262003C7408 /* AppDelegate.swift */,
@@ -187,36 +191,6 @@
 			path = adrianMovieDBUITests;
 			sourceTree = "<group>";
 		};
-		3A083466281AA8E1003C7408 /* Popular */ = {
-			isa = PBXGroup;
-			children = (
-				3A08346E281AAA8A003C7408 /* PopularContract.swift */,
-				3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */,
-				3A083468281AA941003C7408 /* PopularViewController.storyboard */,
-				3A08346A281AA961003C7408 /* PopularViewController.swift */,
-				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
-				3A083474281AAB05003C7408 /* PopularInteractor.swift */,
-				3A083477281AAB1A003C7408 /* PopularWireframe.swift */,
-				3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */,
-				3A0E88C9281E912B008C7AB8 /* PrototypeCell.swift */,
-			);
-			path = Popular;
-			sourceTree = "<group>";
-		};
-		3A083467281AA8F8003C7408 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				3A08347F281AAB5F003C7408 /* FavoritesContract.swift */,
-				3A08347D281AAB50003C7408 /* FavoritesControllerBuilder.swift */,
-				3A083479281AAB2F003C7408 /* FavoritesViewController.storyboard */,
-				3A08347B281AAB3E003C7408 /* FavoritesViewController.swift */,
-				3A083481281AAB6E003C7408 /* FavoritesPresenter.swift */,
-				3A083483281AAB78003C7408 /* FavoritesInteractor.swift */,
-				3A083485281AAB86003C7408 /* FavoritesWireframe.swift */,
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
 		3A08346C281AA9A6003C7408 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +211,72 @@
 				3A846D9928204AA700DD15A0 /* FavoriteLocalProvider.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		3A5CBA7C28207A8800EB4192 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A083479281AAB2F003C7408 /* FavoritesViewController.storyboard */,
+				3A08347B281AAB3E003C7408 /* FavoritesViewController.swift */,
+				3A083468281AA941003C7408 /* PopularViewController.storyboard */,
+				3A08346A281AA961003C7408 /* PopularViewController.swift */,
+				3A5CBA8228207B0400EB4192 /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3A5CBA7D28207A8F00EB4192 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				3A083472281AAAFA003C7408 /* PopularPresenter.swift */,
+				3A083481281AAB6E003C7408 /* FavoritesPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		3A5CBA7E28207A9800EB4192 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				3A083474281AAB05003C7408 /* PopularInteractor.swift */,
+				3A083483281AAB78003C7408 /* FavoritesInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		3A5CBA7F28207AA200EB4192 /* Wireframes */ = {
+			isa = PBXGroup;
+			children = (
+				3A083477281AAB1A003C7408 /* PopularWireframe.swift */,
+				3A083485281AAB86003C7408 /* FavoritesWireframe.swift */,
+			);
+			path = Wireframes;
+			sourceTree = "<group>";
+		};
+		3A5CBA8028207AC200EB4192 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				3A083470281AAAE8003C7408 /* PopularControllerBuilder.swift */,
+				3A08347D281AAB50003C7408 /* FavoritesControllerBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		3A5CBA8128207ACD00EB4192 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				3A08346E281AAA8A003C7408 /* PopularContract.swift */,
+				3A08347F281AAB5F003C7408 /* FavoritesContract.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		3A5CBA8228207B0400EB4192 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3A0ABEF1281BEAEC000F3912 /* MovieViewCell.swift */,
+				3A0E88C9281E912B008C7AB8 /* PrototypeCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

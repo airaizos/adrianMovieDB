@@ -47,3 +47,4 @@ extension Film {
         MovieViewCellModel(title: title, year: releaseDate, favorite: adult)
     }
 }
+

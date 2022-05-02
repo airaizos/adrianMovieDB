@@ -12,7 +12,6 @@ enum ProviderError: Error {
 }
 
 class PopularLocalProvider {
-    //class PopularLocalProvider: PopularProviderContract {
     var movies = [Movie]()
     
     func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void) {

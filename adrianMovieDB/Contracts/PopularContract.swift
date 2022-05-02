@@ -61,7 +61,7 @@ protocol PopularTableViewDelegate {
 }
 
 //FILM
-
+/*
 protocol PopularProviderFilmContract {
     func fetchPopular(_ completion: @escaping(Result<[Film],ProviderError>)-> Void)
     
@@ -71,3 +71,4 @@ protocol PopularOutputFilmContract {
     func didFetch(movies: [Film])
     func didFetchFail(movies: [Film])
 }
+*/
