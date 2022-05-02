@@ -13,6 +13,8 @@ protocol PopularViewControllerContract: UIViewController {
     func viewDidLoad()
     func reloadData()
     
+    func setFavorite(_ favorite: Bool, at indexPath: IndexPath)
+    
    static func createFromStoryboard() -> PopularViewController
 }
 
@@ -25,12 +27,14 @@ protocol PopularPresenterContract {
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)
+    func didSelectFavorite(at indexPath: IndexPath)
 }
 
 protocol PopularInteractorContract {
     var popularProvider: PopularProviderContract? { get set }
     var output: PopularOutputContract? { get set }
-    func fetchMovies() 
+    func fetchMovies()
+    
 }
 
 protocol PopularWireframeContract {
@@ -46,6 +50,13 @@ protocol PopularProviderContract {
 protocol PopularOutputContract {
     func didFetch(movies: [Movie])
     func didFetchFail(movies: [Movie])
+    
+   
+}
+
+protocol PopularTableViewDelegate {
+    func didPressInFavorite(cell: MovieViewCell)
+    
 }
 
 //FILM

@@ -8,30 +8,40 @@
 import UIKit
 
 class MovieViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
     func configure(with cellViewModel: MovieViewCellModel) {
         
         movieTitle.text = cellViewModel.title
         yearLabel.text = cellViewModel.year
-        
-        
-        
-        /*
-        movieTitle.text = "titulo"
-        yearLabel.text = "año"
-        favoriteImage.image = cellViewModel.favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-        */
     }
     
+    @IBAction func favoritePressed(_ sender: UIButton) {
+        delegate?.didPressInFavorite(cell: self)
+    }
+    
+    var delegate: PopularTableViewDelegate?
+    
+    var isFavorite = false {
+        didSet {
+            if isFavorite {
+                favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            } else {
+                favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+            }
+        }
+    }
 }
+
+

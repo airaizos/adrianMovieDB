@@ -5,8 +5,6 @@
 //  Created by Adrian Iraizos Mendoza on 28/4/22.
 //
 
-//TODO: No se muestra
-
 import UIKit
 
 class PopularViewController: UIViewController {
@@ -36,7 +34,6 @@ class PopularViewController: UIViewController {
 extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            
             return presenter?.numMovies ?? 0
         }
         
@@ -54,16 +51,30 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension PopularViewController: PopularViewControllerContract {
 
-    
    static func createFromStoryboard() -> PopularViewController {
        return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
    }
 }
 
-
+//MARK: SearchBar
 extension PopularViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter?.didSearch(with: searchText)
+    }
+}
+
+// MARK: Favorites
+extension PopularViewController {
+    func didPressInFavorite(cell: MovieViewCell) {
+        guard let indexPath = popularTableView.indexPath(for: cell) else { return }
+        presenter?.didSelectFavorite(at: indexPath)
+    }
+    
+    func setFavorite(_ favorite: Bool, at indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            guard let cell = self.popularTableView.cellForRow(at: indexPath) as? MovieViewCell else {  return }
+            cell.isFavorite = favorite
+        }
     }
 }

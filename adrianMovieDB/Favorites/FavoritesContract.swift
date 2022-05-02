@@ -23,6 +23,7 @@ protocol FavoritesPresenterContract {
 
 protocol FavoritesInteractorContract {
     var favoritesProvider: FavoritesProviderContract? { get set }
+    
 }
 
 protocol FavoritesWireframeContract {
@@ -31,6 +32,5 @@ protocol FavoritesWireframeContract {
 }
 
 protocol FavoritesProviderContract {
-    func fetchFavorites()
     
 }

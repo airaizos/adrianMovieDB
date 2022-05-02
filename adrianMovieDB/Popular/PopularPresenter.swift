@@ -29,6 +29,8 @@ class PopularPresenter: PopularPresenterContract {
         }
     }
     
+    private var favoritesMovies = [Int]()
+    
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel {
         let movie = filteredMovies[IndexPath.row]
         return movie.toTableCellViewModel
@@ -52,8 +54,16 @@ extension PopularPresenter: PopularOutputContract {
     func didFetch(movies: [Movie]) {
         self.movies = movies
     }
+    
+    //MARK: Output Favorites
+    func didUpdateFavorites(in movie: Movie, favorite: Bool) {
+        guard let index = filteredMovies.firstIndex(of: movie) else {
+            return }
+        view?.setFavorite(true, at: IndexPath(row: index, section: 0))
+        }
 }
 
+//MARK: SearchBar
 extension PopularPresenter {
     func didSearch(with searchText: String) {
         
@@ -70,3 +80,15 @@ extension PopularPresenter {
     }
 }
 
+//MARK: Favorites
+extension PopularPresenter {
+    func didSelectFavorite(at indexPath: IndexPath) {
+        let movie = filteredMovies[indexPath.row]
+        
+        if !favoritesMovies.contains(movie.id) {
+            favoritesMovies.append(movie.id)
+            
+            view?.setFavorite(true, at: indexPath)
+        }
+    }
+}

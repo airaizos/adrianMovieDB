@@ -10,6 +10,13 @@ import Foundation
 class PopularInteractor: PopularInteractorContract {
     var popularProvider: PopularProviderContract?
     var output: PopularOutputContract?
+    var favoritesProvider: FavoritesProviderContract?
+    
+    private var favorites: [Int]() {
+        get {
+            favoritesProvider.
+        }
+    }
     
     func fetchMovies() {
         popularProvider?.fetchPopular( { result in
@@ -20,4 +27,10 @@ class PopularInteractor: PopularInteractorContract {
             }
         })
     }
+}
+
+extension PopularInteractor {
+    //Favorites en interactor
+  //  private let fileManager??
+    
 }

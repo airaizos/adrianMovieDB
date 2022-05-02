@@ -40,13 +40,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evh-59-QWR">
-                                                    <rect key="frame" x="10" y="7" width="20" height="21"/>
+                                                    <rect key="frame" x="10" y="20" width="20" height="8"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="⭐️"/>
+                                                    <connections>
+                                                        <action selector="favoritePressed:" destination="Duz-E6-M0a" eventType="touchUpInside" id="TdV-9Y-5MO"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="evh-59-QWR" firstAttribute="top" secondItem="wXG-2H-bbk" secondAttribute="top" constant="7" id="3Xh-QF-UNA"/>
+                                                <constraint firstItem="evh-59-QWR" firstAttribute="top" secondItem="wXG-2H-bbk" secondAttribute="top" constant="20" symbolic="YES" id="3Xh-QF-UNA"/>
                                                 <constraint firstAttribute="bottom" secondItem="evh-59-QWR" secondAttribute="bottom" constant="7" id="4gM-Np-2a0"/>
                                                 <constraint firstItem="ewh-XY-07s" firstAttribute="leading" secondItem="wXG-2H-bbk" secondAttribute="leading" constant="40" id="8GX-oQ-ilQ"/>
                                                 <constraint firstItem="IVt-cb-KV7" firstAttribute="top" secondItem="ewh-XY-07s" secondAttribute="bottom" constant="5" id="LS4-Y7-5bg"/>
@@ -57,6 +60,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="evh-59-QWR" id="Hn3-wM-8dC"/>
                                             <outlet property="movieTitle" destination="ewh-XY-07s" id="BTk-Fe-1AJ"/>
                                             <outlet property="yearLabel" destination="IVt-cb-KV7" id="N4L-wM-32m"/>
                                         </connections>

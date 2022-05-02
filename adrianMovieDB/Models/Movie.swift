@@ -11,7 +11,7 @@ struct MoviesResults: Codable {
     var results: [Movie]
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Equatable {
     let id: Int
     let title: String
     let favorite: Bool
