@@ -52,6 +52,7 @@ class PopularPresenter: PopularPresenterContract {
     func fetchMore() {
         interactor?.output = self
         interactor?.fetchAnother(page: page)
+        self.page += 1
         view?.reloadData()
         //TODO: Se multiplican!!
     }

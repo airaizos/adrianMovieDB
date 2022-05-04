@@ -96,7 +96,7 @@ extension PopularViewController {
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
         //TODO: HardInt20
-        if maximumOffset - currenOffset <= 20 {
+        if maximumOffset - currenOffset <= 50 {
             self.fetchMore()
         }
     }
