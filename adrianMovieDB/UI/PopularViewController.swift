@@ -23,7 +23,7 @@ class PopularViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popularTableView.dataSource = self
         popularTableView.delegate = self
         presenter?.viewDidLoad()
@@ -32,29 +32,31 @@ class PopularViewController: UIViewController {
 }
 
 extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numMovies ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return presenter?.numMovies ?? 0
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as? MovieViewCell else {
             
-            guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as? MovieViewCell else {
-        
-                fatalError()
-            }
-            cell.delegate = self
-            cell.isFavorite = presenter?.isFavorite(at: indexPath) ?? false
-            cell.configure(with: cellViewModel)
-            return cell
+            fatalError()
         }
+        cell.delegate = self
+        cell.isFavorite = presenter?.isFavorite(at: indexPath) ?? false
+        cell.configure(with: cellViewModel)
+        return cell
+    }
+    
+    
 }
 
 extension PopularViewController: PopularViewControllerContract {
-
-   static func createFromStoryboard() -> PopularViewController {
-       return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
-   }
+    
+    static func createFromStoryboard() -> PopularViewController {
+        return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
+    }
 }
 
 //MARK: SearchBar
@@ -76,6 +78,26 @@ extension PopularViewController: PopularTableViewDelegate {
         DispatchQueue.main.async {
             guard let cell = self.popularTableView.cellForRow(at: indexPath) as? MovieViewCell else {  return }
             cell.isFavorite = favorite
+        }
+    }
+}
+
+//MARK: Scroll
+extension PopularViewController {
+    
+    func fetchMore() {
+        presenter?.fetchMore()
+    }
+    
+    
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currenOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        //TODO: HardInt20
+        if maximumOffset - currenOffset <= 20 {
+            self.fetchMore()
         }
     }
 }

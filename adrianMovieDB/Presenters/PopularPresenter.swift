@@ -35,6 +35,12 @@ class PopularPresenter: PopularPresenterContract {
         return movie.toTableCellViewModel
     }
     
+    //MARK: FetchMore
+    var page = 2
+    let itemsPerBatch = 50
+    var offset = 0
+    var reachedEndOfItems = false
+    
     func viewDidLoad() {
         fetchMovies()
     }
@@ -43,15 +49,21 @@ class PopularPresenter: PopularPresenterContract {
         interactor?.output = self
         interactor?.fetchMovies()
     }
+    func fetchMore() {
+        interactor?.output = self
+        interactor?.fetchAnother(page: page)
+        view?.reloadData()
+        //TODO: Se multiplican!!
+    }
 }
 
 extension PopularPresenter: PopularOutputContract {
     
     func didFetchFail(movies: [Movie]) {
-        self.movies = movies
+        self.movies.append(contentsOf: movies)
     }
     func didFetch(movies: [Movie]) {
-        self.movies = movies
+        self.movies.append(contentsOf: movies)
     }
     
     //MARK: Output Favorites

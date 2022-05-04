@@ -20,17 +20,28 @@ class PopularInteractor: PopularInteractorContract {
     private var favorites : [String]   {
         get {
             userDefaults.stringArray(forKey: PopularInteractor.favoritesKey) ?? []
-            }
-        set {
-                userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
-            }
         }
+        set {
+            userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
+        }
+    }
     
     func fetchMovies() {
         popularProvider?.fetchPopular( { result in
             switch result {
             case .success(let movies): self.output?.didFetch(movies: movies)
-            case .failure: self.output?.didFetchFail(movies: [Movie(id: 41490, title: "No se ha podido descargar", favorite: false, year: "")]
+            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]
+            )
+            }
+        })
+    }
+    
+    func fetchAnother(page: Int) {
+        
+        popularProvider?.fetchAnother(page: page, { result in
+            switch result {
+            case .success(let movies): self.output?.didFetch(movies: movies)
+            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]
             )
             }
         })

@@ -18,7 +18,7 @@ protocol PopularViewControllerContract: UIViewController {
    static func createFromStoryboard() -> PopularViewController
 }
 
-protocol PopularPresenterContract {
+protocol PopularPresenterContract: AnyObject {
     var view: PopularViewControllerContract? { get set }
     var interactor: PopularInteractorContract? {  get set }
     var wireframe: PopularWireframeContract? {  get set }
@@ -29,26 +29,29 @@ protocol PopularPresenterContract {
     func didSearch(with searchText: String)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
+    func fetchMore()
 }
 
-protocol PopularInteractorContract {
+protocol PopularInteractorContract: AnyObject {
     var popularProvider: PopularProviderContract? { get set }
     var output: PopularOutputContract? { get set }
     func fetchMovies()
-    
+    func fetchAnother(page: Int)
+   
 }
 
-protocol PopularWireframeContract {
+protocol PopularWireframeContract: AnyObject {
     var view: UIViewController? { get set }
     func navigateTo()
 }
 
-protocol PopularProviderContract {
+protocol PopularProviderContract: AnyObject {
     func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void)
     
+    func fetchAnother(page: Int, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
 }
 
-protocol PopularOutputContract {
+protocol PopularOutputContract: AnyObject {
     func didFetch(movies: [Movie])
     func didFetchFail(movies: [Movie])
     
@@ -59,16 +62,3 @@ protocol PopularTableViewDelegate {
     func didPressInFavorite(cell: MovieViewCell)
     
 }
-
-//FILM
-/*
-protocol PopularProviderFilmContract {
-    func fetchPopular(_ completion: @escaping(Result<[Film],ProviderError>)-> Void)
-    
-}
-
-protocol PopularOutputFilmContract {
-    func didFetch(movies: [Film])
-    func didFetchFail(movies: [Film])
-}
-*/
