@@ -29,15 +29,14 @@ protocol PopularPresenterContract: AnyObject {
     func didSearch(with searchText: String)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
-    func fetchMore()
+    func fetchMovies()
 }
 
 protocol PopularInteractorContract: AnyObject {
     var popularProvider: PopularProviderContract? { get set }
     var output: PopularOutputContract? { get set }
-    func fetchMovies()
-    func fetchAnother(page: Int)
-   
+    func fetchMovies(page: Int)
+
 }
 
 protocol PopularWireframeContract: AnyObject {
@@ -46,9 +45,8 @@ protocol PopularWireframeContract: AnyObject {
 }
 
 protocol PopularProviderContract: AnyObject {
-    func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void)
-    
-    func fetchAnother(page: Int, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
+
+    func fetchPopular(page: Int, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
 }
 
 protocol PopularOutputContract: AnyObject {

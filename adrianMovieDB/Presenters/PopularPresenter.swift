@@ -36,7 +36,7 @@ class PopularPresenter: PopularPresenterContract {
     }
     
     //MARK: FetchMore
-    var page = 2
+    var page = 1
     let itemsPerBatch = 50
     var offset = 0
     var reachedEndOfItems = false
@@ -47,14 +47,8 @@ class PopularPresenter: PopularPresenterContract {
     
     func fetchMovies() {
         interactor?.output = self
-        interactor?.fetchMovies()
-    }
-    func fetchMore() {
-        interactor?.output = self
-        interactor?.fetchAnother(page: page)
+        interactor?.fetchMovies(page: page)
         self.page += 1
-        view?.reloadData()
-        //TODO: Se multiplican!!
     }
 }
 

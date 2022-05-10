@@ -85,8 +85,8 @@ extension PopularViewController: PopularTableViewDelegate {
 //MARK: Scroll
 extension PopularViewController {
     
-    func fetchMore() {
-        presenter?.fetchMore()
+    func fetchMovies() {
+        presenter?.fetchMovies()
     }
     
     
@@ -95,9 +95,8 @@ extension PopularViewController {
         let currenOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
-        //TODO: HardInt20
         if maximumOffset - currenOffset <= 50 {
-            self.fetchMore()
+            self.fetchMovies()
         }
     }
 }

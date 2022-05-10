@@ -26,19 +26,10 @@ class PopularInteractor: PopularInteractorContract {
         }
     }
     
-    func fetchMovies() {
-        popularProvider?.fetchPopular( { result in
-            switch result {
-            case .success(let movies): self.output?.didFetch(movies: movies)
-            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]
-            )
-            }
-        })
-    }
     
-    func fetchAnother(page: Int) {
+    func fetchMovies(page: Int) {
         
-        popularProvider?.fetchAnother(page: page, { result in
+        popularProvider?.fetchPopular(page: page, { result in
             switch result {
             case .success(let movies): self.output?.didFetch(movies: movies)
             case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]
