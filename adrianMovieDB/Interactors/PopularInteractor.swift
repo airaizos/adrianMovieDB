@@ -27,9 +27,9 @@ class PopularInteractor: PopularInteractorContract {
     }
     
     
-    func fetchMovies(page: Int) {
+    func fetchMovies(page: Int, section: APISection) {
         
-        popularProvider?.fetchPopular(page: page, { result in
+        popularProvider?.fetchMovies(page: page, section: section, { result in
             switch result {
             case .success(let movies): self.output?.didFetch(movies: movies)
             case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]

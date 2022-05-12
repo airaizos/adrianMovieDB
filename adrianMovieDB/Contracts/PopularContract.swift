@@ -35,7 +35,7 @@ protocol PopularPresenterContract: AnyObject {
 protocol PopularInteractorContract: AnyObject {
     var popularProvider: PopularProviderContract? { get set }
     var output: PopularOutputContract? { get set }
-    func fetchMovies(page: Int)
+    func fetchMovies(page: Int, section: APISection)
 
 }
 
@@ -46,7 +46,7 @@ protocol PopularWireframeContract: AnyObject {
 
 protocol PopularProviderContract: AnyObject {
 
-    func fetchPopular(page: Int, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
+    func fetchMovies(page: Int, section: APISection, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
 }
 
 protocol PopularOutputContract: AnyObject {

@@ -29,7 +29,7 @@ class PopularPresenter: PopularPresenterContract {
     }
     private var filteredMovies: [Movie]!
     private var favoritesMovies = [Movie]()
-    // TODO: Index out of range movies ≭ filteredMovies
+
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel {
         let movie = filteredMovies[IndexPath.row]
         return movie.toTableCellViewModel
@@ -47,7 +47,7 @@ class PopularPresenter: PopularPresenterContract {
     
     func fetchMovies() {
         interactor?.output = self
-        interactor?.fetchMovies(page: page)
+        interactor?.fetchMovies(page: page, section: .popular)
         self.page += 1
     }
 }
@@ -78,9 +78,14 @@ extension PopularPresenter {
         if searchText == "" {
             filteredMovies = movies
         } else {
+            interactor?.output = self
+            interactor?.fetchMovies(page: page, section: .search)
+            /*
             filteredMovies = movies.filter{ (movie: Movie) -> Bool in
                 return movie.title.lowercased().contains(searchText.lowercased())
+             
             }
+             */
         }
         view?.reloadData()
     }

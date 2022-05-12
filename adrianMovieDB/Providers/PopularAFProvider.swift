@@ -8,7 +8,7 @@
 import Foundation
 
 import Alamofire
-class PopularAFProvider: PopularProviderContract {
+class PopularAFProvider {
     func fetchAnother(page: Int, _ completion: @escaping (Result<[Movie], ProviderError>) -> Void) {
         
     }
