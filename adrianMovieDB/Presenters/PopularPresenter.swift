@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PopularPresenter: PopularPresenterContract {
     var view: PopularViewControllerContract?
@@ -47,7 +48,7 @@ class PopularPresenter: PopularPresenterContract {
     
     func fetchMovies() {
         interactor?.output = self
-        interactor?.fetchMovies(page: page, section: .popular)
+        interactor?.fetchMovies(page: page, section: UrlParameter.popular,  query: "")
         self.page += 1
     }
 }
@@ -71,6 +72,20 @@ extension PopularPresenter: PopularOutputContract {
 
 //MARK: SearchBar
 extension PopularPresenter {
+    
+    func searchBarSearchButtonClicked( searchBar: UISearchBar!) {
+        filteredMovies = []
+        
+        if searchBar.text == "" {
+            filteredMovies = movies
+        } else {
+            interactor?.output = self
+            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: searchBar.text ?? "")
+        }
+        view?.viewDidLoad()
+        
+    }
+    /*
     func didSearch(with searchText: String) {
         
         filteredMovies = []
@@ -79,7 +94,7 @@ extension PopularPresenter {
             filteredMovies = movies
         } else {
             interactor?.output = self
-            interactor?.fetchMovies(page: page, section: .search)
+            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: searchText)
             /*
             filteredMovies = movies.filter{ (movie: Movie) -> Bool in
                 return movie.title.lowercased().contains(searchText.lowercased())
@@ -89,6 +104,7 @@ extension PopularPresenter {
         }
         view?.reloadData()
     }
+     */
 }
 
 //MARK: Favorites
@@ -98,8 +114,6 @@ extension PopularPresenter {
         
         if !favoritesMovies.contains(movie) {
             favoritesMovies.append(movie)
-  //          favoriteProvider?.saveFavorite(movie)
-    //       favoriteProvider?.copyFavorites(self.favoritesMovies)
             favoriteProvider?.favoriteMovies = self.favoritesMovies
             
             view?.setFavorite(true, at: indexPath)

@@ -26,16 +26,17 @@ protocol PopularPresenterContract: AnyObject {
     
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
-    func didSearch(with searchText: String)
+ //   func didSearch(with searchText: String)
+    func searchBarSearchButtonClicked( searchBar: UISearchBar!) 
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
     func fetchMovies()
 }
 
 protocol PopularInteractorContract: AnyObject {
-    var popularProvider: PopularProviderContract? { get set }
+    var popularProvider: ProviderContract? { get set }
     var output: PopularOutputContract? { get set }
-    func fetchMovies(page: Int, section: APISection)
+    func fetchMovies(page: Int, section: UrlParameter, query: String)
 
 }
 
@@ -44,9 +45,9 @@ protocol PopularWireframeContract: AnyObject {
     func navigateTo()
 }
 
-protocol PopularProviderContract: AnyObject {
+protocol ProviderContract: AnyObject {
 
-    func fetchMovies(page: Int, section: APISection, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
+    func fetchMovies(page: Int, section: UrlParameter, query: String, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
 }
 
 protocol PopularOutputContract: AnyObject {

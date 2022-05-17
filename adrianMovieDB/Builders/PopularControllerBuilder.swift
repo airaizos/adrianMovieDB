@@ -26,6 +26,9 @@ class PopularControllerBuilder {
         interactor.popularProvider = fetchMovies
         presenter.favoriteProvider = favoriteProvider
         
+        
+       
+        
         return viewController
     }
     

@@ -61,9 +61,13 @@ extension PopularViewController: PopularViewControllerContract {
 
 //MARK: SearchBar
 extension PopularViewController: UISearchBarDelegate {
-    
+    /*
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter?.didSearch(with: searchText)
+     */
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter?.searchBarSearchButtonClicked(searchBar: searchBar)
     }
 }
 
