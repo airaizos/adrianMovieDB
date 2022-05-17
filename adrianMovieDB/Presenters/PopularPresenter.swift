@@ -38,6 +38,7 @@ class PopularPresenter: PopularPresenterContract {
     
     //MARK: FetchMore
     var page = 1
+    var searchPage = 1
     let itemsPerBatch = 50
     var offset = 0
     var reachedEndOfItems = false
@@ -72,29 +73,18 @@ extension PopularPresenter: PopularOutputContract {
 
 //MARK: SearchBar
 extension PopularPresenter {
-    
-    func searchBarSearchButtonClicked( searchBar: UISearchBar!) {
-        filteredMovies = []
-        
-        if searchBar.text == "" {
-            filteredMovies = movies
-        } else {
-            interactor?.output = self
-            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: searchBar.text ?? "")
-        }
-        view?.viewDidLoad()
-        
-    }
-    /*
+
     func didSearch(with searchText: String) {
         
         filteredMovies = []
+        
+        //TODO: mezcla las populares y las de la busqueda
         
         if searchText == "" {
             filteredMovies = movies
         } else {
             interactor?.output = self
-            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: searchText)
+            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: "&query=\(searchText)")
             /*
             filteredMovies = movies.filter{ (movie: Movie) -> Bool in
                 return movie.title.lowercased().contains(searchText.lowercased())
@@ -104,7 +94,6 @@ extension PopularPresenter {
         }
         view?.reloadData()
     }
-     */
 }
 
 //MARK: Favorites

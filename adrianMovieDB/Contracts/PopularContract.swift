@@ -26,8 +26,8 @@ protocol PopularPresenterContract: AnyObject {
     
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
- //   func didSearch(with searchText: String)
-    func searchBarSearchButtonClicked( searchBar: UISearchBar!) 
+    func didSearch(with searchText: String)
+//    func searchBarSearchButtonClicked( searchBar: UISearchBar!)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
     func fetchMovies()

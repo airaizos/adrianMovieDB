@@ -15,7 +15,7 @@ struct Movie: Codable, Equatable {
     let id: Int
     let title: String
     let favorite: Bool
-    let year: String
+    let year: String?
     
  enum CodingKeys: String, CodingKey {
      case id
@@ -34,6 +34,6 @@ struct MovieViewCellModel {
 
 extension Movie {
     var toTableCellViewModel: MovieViewCellModel {
-        MovieViewCellModel(title: title, year: year, favorite: favorite)
+        MovieViewCellModel(title: title, year: year ?? "", favorite: favorite)
     }
 }

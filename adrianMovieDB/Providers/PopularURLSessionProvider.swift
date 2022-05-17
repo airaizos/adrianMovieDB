@@ -13,7 +13,7 @@ enum UrlParameter {
     var section: String {
         switch self {
         case .popular:
-            return "movies/popular"
+            return "movie/popular"
         case .search:
             return "search/movie"
         }
@@ -26,7 +26,7 @@ class PopularURLSessionProvider: ProviderContract {
     let api = "https://api.themoviedb.org/3/"
     let apiKey = "1ed1b35f1dd69fbc9fdce2d768e3e870"
     let language = "es-ES"
-    let region = "es-ES"
+//    let region = "es-ES"
     var query: String {
         if self.query == "" {
             return ""
@@ -36,7 +36,7 @@ class PopularURLSessionProvider: ProviderContract {
     }
     
     func fetchMovies(page: Int, section: UrlParameter, query: String, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void) {
-        guard let url = URL(string: "\(api)\(section.section)?api_key=\(apiKey)&language=\(language)\(query)&page=\(page)&region=\(region)") else { return }
+        guard let url = URL(string: "\(api)\(section.section)?api_key=\(apiKey)&language=\(language)\(query)&page=\(page)") else { return }
         print(section)
         print(url)
         
