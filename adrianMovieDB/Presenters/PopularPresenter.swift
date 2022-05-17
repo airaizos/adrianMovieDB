@@ -13,6 +13,7 @@ class PopularPresenter: PopularPresenterContract {
     var interactor: PopularInteractorContract?
     var wireframe: PopularWireframeContract?
     var favoriteProvider: FavoriteLocalProvider?
+    var isSearching = false
     
     var numMovies: Int {
         if filteredMovies == nil {
@@ -39,9 +40,9 @@ class PopularPresenter: PopularPresenterContract {
     //MARK: FetchMore
     var page = 1
     var searchPage = 1
-    let itemsPerBatch = 50
-    var offset = 0
-    var reachedEndOfItems = false
+//    let itemsPerBatch = 50
+// var offset = 0
+//    var reachedEndOfItems = false
     
     func viewDidLoad() {
         fetchMovies()
@@ -50,6 +51,7 @@ class PopularPresenter: PopularPresenterContract {
     func fetchMovies() {
         interactor?.output = self
         interactor?.fetchMovies(page: page, section: UrlParameter.popular,  query: "")
+        isSearching = false
         self.page += 1
     }
 }
@@ -73,7 +75,6 @@ extension PopularPresenter: PopularOutputContract {
 
 //MARK: SearchBar
 extension PopularPresenter {
-
     func didSearch(with searchText: String) {
         
         filteredMovies = []
@@ -83,16 +84,21 @@ extension PopularPresenter {
         if searchText == "" {
             filteredMovies = movies
         } else {
-            interactor?.output = self
-            interactor?.fetchMovies(page: page, section: UrlParameter.search, query: "&query=\(searchText)")
-            /*
+            isSearching = true
+            fetchSeachedMovies(with: searchText)
+            
             filteredMovies = movies.filter{ (movie: Movie) -> Bool in
                 return movie.title.lowercased().contains(searchText.lowercased())
              
             }
-             */
+            view?.reloadData()
         }
-        view?.reloadData()
+    }
+    
+    func fetchSeachedMovies(with searchText: String) {
+        interactor?.output = self
+        interactor?.fetchMovies(page: searchPage, section: UrlParameter.search, query: "&query=\(searchText)")
+        searchPage += 1
     }
 }
 

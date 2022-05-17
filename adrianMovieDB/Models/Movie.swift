@@ -9,6 +9,7 @@ import Foundation
 
 struct MoviesResults: Codable {
     var results: [Movie]
+//    var totalPages: Int
 }
 
 struct Movie: Codable, Equatable {

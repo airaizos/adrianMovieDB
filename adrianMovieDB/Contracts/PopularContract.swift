@@ -23,7 +23,10 @@ protocol PopularPresenterContract: AnyObject {
     var interactor: PopularInteractorContract? {  get set }
     var wireframe: PopularWireframeContract? {  get set }
     var numMovies: Int  { get }
-    
+    var isSearching: Bool { get set }
+    var page: Int { get set }
+    var searchPage: Int { get set }
+    func fetchSeachedMovies(with searchText: String)
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)

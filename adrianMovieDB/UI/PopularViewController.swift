@@ -49,7 +49,6 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
 }
 
 extension PopularViewController: PopularViewControllerContract {
@@ -61,27 +60,22 @@ extension PopularViewController: PopularViewControllerContract {
 
 //MARK: SearchBar
 extension PopularViewController: UISearchBarDelegate {
-    /*
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter?.didSearch(with: searchText)
-     */
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchBar)
-                   perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.5)
-        
+        perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.5)
     }
-        @objc func reload(_ searchBar: UISearchBar) {
-            guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
-                print("nada que buscar")
-                return
-            }
-            if let term = searchBar.searchTextField.text {
-                presenter?.didSearch(with: term)
-            }
+    @objc func reload(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
+            print("nada que buscar")
+            return
         }
-  //      presenter?.searchBarSearchButtonClicked(searchBar: searchBar)
-    
+        if let term = searchBar.searchTextField.text {
+            presenter?.didSearch(with: term)
+            presenter?.searchPage = 1
+            presenter?.isSearching = true
+        }
+    }
 }
 
 // MARK: Favorites
@@ -106,15 +100,19 @@ extension PopularViewController {
         presenter?.fetchMovies()
     }
     
-    
-    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currenOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
         //TODO: Cómo saber cuando es de la barra y cuando es de las popular movies
         if maximumOffset - currenOffset <= 50 {
-            self.fetchMovies()
+            
+            if presenter?.isSearching == true {
+                //total pages
+            } else {           self.fetchMovies()
+            }
         }
     }
 }
+
+
