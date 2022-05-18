@@ -73,7 +73,6 @@ extension PopularPresenter: PopularOutputContract {
 //MARK: SearchBar
 extension PopularPresenter {
     func didSearch(with searchText: String) {
-        //TODO: No oculta las peliculas al filtrar. si quito estos dos si!
         
         if searchPage == 1 {
             movies = []
@@ -116,9 +115,7 @@ extension PopularPresenter {
     }
 }
 
-
 extension PopularPresenter {
-    //MARK: Borrar después de una búsqueda y restablecer películas
     func restartMovies() {
         page = 1
         searchPage = 1
@@ -127,6 +124,4 @@ extension PopularPresenter {
         filteredMovies = movies
         view?.viewDidLoad()
     }
-    
-    
 }

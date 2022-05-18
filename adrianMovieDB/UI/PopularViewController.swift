@@ -57,7 +57,6 @@ extension PopularViewController: PopularViewControllerContract {
 }
 
 //MARK: SearchBar
-//TODO: Me manda hasta arriba después de hacer el scroll abajo?? porque?
 extension PopularViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
