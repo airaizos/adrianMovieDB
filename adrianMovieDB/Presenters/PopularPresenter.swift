@@ -73,17 +73,19 @@ extension PopularPresenter: PopularOutputContract {
 //MARK: SearchBar
 extension PopularPresenter {
     func didSearch(with searchText: String) {
-        //TODO: No oculta las peliculas populares
-
-        filteredMovies = []
-        fetchSearchedMovies(with: searchText)
-    
+        //TODO: No oculta las peliculas al filtrar. si quito estos dos si!
+        
+        if searchPage == 1 {
+            movies = []
+        }
+        
         filteredMovies = movies.filter { (movie: Movie) -> Bool in
             return movie.title.lowercased().contains(searchText.lowercased())
         }
+        fetchSearchedMovies(with: searchText)
         view?.reloadData()
+        
     }
-    
     func fetchSearchedMovies(with searchText: String) {
         isSearching = true
         interactor?.fetchMovies(page: searchPage, section: UrlParameter.search, query: "&query=\(searchText)")
