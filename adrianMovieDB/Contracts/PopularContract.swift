@@ -27,6 +27,7 @@ protocol PopularPresenterContract: AnyObject {
     var page: Int { get set }
     var searchPage: Int { get set }
     func fetchSearchedMovies(with searchText: String)
+    func restartMovies()
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)

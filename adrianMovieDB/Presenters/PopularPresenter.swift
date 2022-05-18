@@ -40,9 +40,6 @@ class PopularPresenter: PopularPresenterContract {
     //MARK: FetchMore
     var page = 1
     var searchPage = 1
-    //    let itemsPerBatch = 50
-    // var offset = 0
-    //    var reachedEndOfItems = false
     
     func viewDidLoad() {
         fetchMovies()
@@ -76,19 +73,15 @@ extension PopularPresenter: PopularOutputContract {
 //MARK: SearchBar
 extension PopularPresenter {
     func didSearch(with searchText: String) {
-        //TODO: mezcla las populares y las de la busqueda. No oculta las peliculas populares
+        //TODO: No oculta las peliculas populares
+
         filteredMovies = []
-        
-        if searchText == "" {
-            filteredMovies = movies
-        } else {
-            
- //           fetchSearchedMovies(with: searchText)
-            filteredMovies = movies.filter { (movie: Movie) -> Bool in
-                return movie.title.lowercased().contains(searchText.lowercased())
-            }
-            view?.reloadData()
+        fetchSearchedMovies(with: searchText)
+    
+        filteredMovies = movies.filter { (movie: Movie) -> Bool in
+            return movie.title.lowercased().contains(searchText.lowercased())
         }
+        view?.reloadData()
     }
     
     func fetchSearchedMovies(with searchText: String) {
@@ -119,4 +112,19 @@ extension PopularPresenter {
         let movie = filteredMovies[indexPath.row]
         return favoritesMovies.contains(movie)
     }
+}
+
+
+extension PopularPresenter {
+    //MARK: Borrar después de una búsqueda y restablecer películas
+    func restartMovies() {
+        page = 1
+        searchPage = 1
+        isSearching = false
+        movies = [Movie]()
+        filteredMovies = movies
+        view?.viewDidLoad()
+    }
+    
+    
 }

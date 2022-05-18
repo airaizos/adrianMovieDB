@@ -66,7 +66,7 @@ extension PopularViewController: UISearchBarDelegate {
     }
     @objc func reload(_ searchBar: UISearchBar) {
         guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
-            print("nada que buscar")
+            presenter?.restartMovies()
             return
         }
         if let term = searchBar.searchTextField.text {
@@ -107,9 +107,8 @@ extension PopularViewController {
             
             if presenter?.isSearching == true {
                 if let searchedText = searchBar.text {
-                    searchBar(searchBar, textDidChange: searchedText)
+                    self.searchBar(searchBar, textDidChange: searchedText)
                 }
-                
             } else {
                 self.fetchMovies()
             }
