@@ -31,7 +31,7 @@ class PopularPresenter: PopularPresenterContract {
     }
     private var filteredMovies: [Movie]!
     private var favoritesMovies = [Movie]()
-
+    
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel {
         let movie = filteredMovies[IndexPath.row]
         return movie.toTableCellViewModel
@@ -40,9 +40,9 @@ class PopularPresenter: PopularPresenterContract {
     //MARK: FetchMore
     var page = 1
     var searchPage = 1
-//    let itemsPerBatch = 50
-// var offset = 0
-//    var reachedEndOfItems = false
+    //    let itemsPerBatch = 50
+    // var offset = 0
+    //    var reachedEndOfItems = false
     
     func viewDidLoad() {
         fetchMovies()
@@ -70,33 +70,29 @@ extension PopularPresenter: PopularOutputContract {
         guard let index = filteredMovies.firstIndex(of: movie) else {
             return }
         view?.setFavorite(true, at: IndexPath(row: index, section: 0))
-        }
+    }
 }
 
 //MARK: SearchBar
 extension PopularPresenter {
     func didSearch(with searchText: String) {
-        
+        //TODO: mezcla las populares y las de la busqueda. No oculta las peliculas populares
         filteredMovies = []
-        
-        //TODO: mezcla las populares y las de la busqueda
         
         if searchText == "" {
             filteredMovies = movies
         } else {
-            isSearching = true
-            fetchSeachedMovies(with: searchText)
             
-            filteredMovies = movies.filter{ (movie: Movie) -> Bool in
+ //           fetchSearchedMovies(with: searchText)
+            filteredMovies = movies.filter { (movie: Movie) -> Bool in
                 return movie.title.lowercased().contains(searchText.lowercased())
-             
             }
             view?.reloadData()
         }
     }
     
-    func fetchSeachedMovies(with searchText: String) {
-        interactor?.output = self
+    func fetchSearchedMovies(with searchText: String) {
+        isSearching = true
         interactor?.fetchMovies(page: searchPage, section: UrlParameter.search, query: "&query=\(searchText)")
         searchPage += 1
     }

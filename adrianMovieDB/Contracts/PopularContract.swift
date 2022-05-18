@@ -26,11 +26,10 @@ protocol PopularPresenterContract: AnyObject {
     var isSearching: Bool { get set }
     var page: Int { get set }
     var searchPage: Int { get set }
-    func fetchSeachedMovies(with searchText: String)
+    func fetchSearchedMovies(with searchText: String)
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)
-//    func searchBarSearchButtonClicked( searchBar: UISearchBar!)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
     func fetchMovies()

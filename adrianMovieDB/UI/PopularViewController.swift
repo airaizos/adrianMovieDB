@@ -15,7 +15,6 @@ class PopularViewController: UIViewController {
     @IBOutlet weak var popularTableView: UITableView!
     
     func reloadData(){
-        
         DispatchQueue.main.async {
             self.popularTableView.reloadData()
         }
@@ -48,7 +47,6 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: cellViewModel)
         return cell
     }
-    
 }
 
 extension PopularViewController: PopularViewControllerContract {
@@ -59,6 +57,7 @@ extension PopularViewController: PopularViewControllerContract {
 }
 
 //MARK: SearchBar
+//TODO: Me manda hasta arriba después de hacer el scroll abajo?? porque?
 extension PopularViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -72,10 +71,10 @@ extension PopularViewController: UISearchBarDelegate {
         }
         if let term = searchBar.searchTextField.text {
             presenter?.didSearch(with: term)
-            presenter?.searchPage = 1
-            presenter?.isSearching = true
+            reloadData()
         }
     }
+    
 }
 
 // MARK: Favorites
@@ -101,15 +100,18 @@ extension PopularViewController {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let currenOffset = scrollView.contentOffset.y
+        let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
-        //TODO: Cómo saber cuando es de la barra y cuando es de las popular movies
-        if maximumOffset - currenOffset <= 50 {
+        if maximumOffset - currentOffset <= 50 {
             
             if presenter?.isSearching == true {
-                //total pages
-            } else {           self.fetchMovies()
+                if let searchedText = searchBar.text {
+                    searchBar(searchBar, textDidChange: searchedText)
+                }
+                
+            } else {
+                self.fetchMovies()
             }
         }
     }
