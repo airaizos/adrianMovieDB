@@ -14,7 +14,7 @@ class MoviesParser {
     }
     
     func parse(data: Data) -> MoviesResults {
-        return (try? decoder.decode(MoviesResults.self, from: data)) ?? MoviesResults(results: [Movie(id: 0, title: "No data", favorite: true, year: "No data")])
+        return (try? decoder.decode(MoviesResults.self, from: data)) ?? MoviesResults(results: [Movie(id: 0, title: "No data", favorite: true, year: "No data", image: "No data")])
     }
     
 }

@@ -32,7 +32,7 @@ class PopularInteractor: PopularInteractorContract {
         popularProvider?.fetchMovies(page: page, section: section, query: query, { result in
             switch result {
             case .success(let movies): self.output?.didFetch(movies: movies)
-            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "")]
+            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "",image: "")]
             )
             }
         })

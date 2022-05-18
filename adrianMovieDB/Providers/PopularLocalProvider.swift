@@ -15,6 +15,6 @@ class PopularLocalProvider {
     var movies = [Movie]()
     
     func fetchMovies(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void) {
-        completion(.success([Movie(id: 414906, title: "La familia Bellie", favorite: true, year: "2014")]))
+        completion(.success([Movie(id: 414906, title: "La familia Bellie", favorite: true, year: "2014", image: nil)]))
     }
 }

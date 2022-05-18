@@ -17,12 +17,14 @@ struct Movie: Codable, Equatable {
     let title: String
     let favorite: Bool
     let year: String?
+    let image: String?
     
  enum CodingKeys: String, CodingKey {
      case id
      case title
      case favorite = "adult"
      case year = "release_date"
+     case image = "backdrop_path"
     }
 }
 
