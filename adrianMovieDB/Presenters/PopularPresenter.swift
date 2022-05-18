@@ -12,7 +12,7 @@ class PopularPresenter: PopularPresenterContract {
     var view: PopularViewControllerContract?
     var interactor: PopularInteractorContract?
     var wireframe: PopularWireframeContract?
-    var favoriteProvider: FavoriteLocalProvider?
+    var favoriteProvider: FavoritesFileManagerStorage?
     var isSearching = false
     
     var numMovies: Int {
@@ -99,7 +99,7 @@ extension PopularPresenter {
         
         if !favoritesMovies.contains(movie) {
             favoritesMovies.append(movie)
-            favoriteProvider?.favoriteMovies = self.favoritesMovies
+            favoriteProvider?.saveFavorite(movie)
             
             view?.setFavorite(true, at: indexPath)
         } else if let index = filteredMovies.firstIndex(of: movie) {

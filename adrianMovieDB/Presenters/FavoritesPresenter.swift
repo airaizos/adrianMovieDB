@@ -21,7 +21,7 @@ class FavoritesPresenter: FavoritesPresenterContract {
     
     private var favoriteMovies = [Movie(id: 1, title: "title", favorite: true, year: "",image: "")] {
         didSet {
-            favoriteMovies = favoriteProvider?.favoriteMovies ?? [Movie(id: 2, title: "favoriteProvider", favorite: true, year: "",image: "")]
+            favoriteMovies = favoriteProvider?.favoriteMovies ?? [Movie(id: 2, title: "favoriteProvider", favorite: true, year: "2022",image: "")]
             view?.reloadData()
             }
     }

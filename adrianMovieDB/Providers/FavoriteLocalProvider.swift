@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoriteLocalProvider: FavoritesProviderContract {
+class FavoriteLocalProvider: FavoritesStorageContract {
     var favoriteMovies = [Movie]()
     
     

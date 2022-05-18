@@ -9,7 +9,7 @@ import Foundation
 
 class FavoritesInteractor: FavoritesInteractorContract {
     var output: FavoritesOutputContract?
-    var favoritesProvider: FavoritesProviderContract?
+    var favoritesProvider: FavoritesStorageContract?
     
     func getFavorites(movies: [Movie]) {
         favoritesProvider?.getFavorites({ result in

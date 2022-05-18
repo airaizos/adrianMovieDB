@@ -15,7 +15,7 @@ class PopularControllerBuilder {
         let interactor = PopularInteractor()
         let wireframe = PopularWireframe()
         let fetchMovies = PopularURLSessionProvider()
-        let favoriteProvider = FavoriteLocalProvider()
+        let favoriteProvider = FavoritesFileManagerStorage()
         
         viewController.presenter = presenter
         presenter.view = viewController

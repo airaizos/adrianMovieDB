@@ -14,7 +14,8 @@ class FavoritesControllerBuilder {
         let presenter = FavoritesPresenter()
         let interactor = FavoritesInteractor()
         let wireframe = FavoritesWireframe()
-        let getFavoriteMovies = FavoriteLocalProvider()
+        //tendria que ser otro que vaya a por las favoritas
+        let getFavoriteMovies = FavoritesFileManagerStorage()
         
         viewController.presenter = presenter
         presenter.view = viewController
