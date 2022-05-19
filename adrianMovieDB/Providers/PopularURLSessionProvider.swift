@@ -36,7 +36,6 @@ class PopularURLSessionProvider: ProviderContract {
     
     func fetchMovies(page: Int, section: UrlParameter, query: String, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void) {
         guard let url = URL(string: "\(api)\(section.section)?api_key=\(apiKey)&language=\(language)\(query)&page=\(page)") else { return }
-        print("Tipo: \(section) - \(url)")
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }

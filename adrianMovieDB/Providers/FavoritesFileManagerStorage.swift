@@ -38,9 +38,7 @@ class FavoritesFileManagerStorage: FavoritesStorageContract {
     }
     
     private var fileURL: URL? {
-  //  let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension("\(fileName).plist")
         let url = Bundle.main.bundleURL.appendingPathComponent("FavoritesMovies").appendingPathExtension("plist")
-        print("Storage:\(String(describing: url))")
             return url
     }
     
@@ -53,7 +51,6 @@ class FavoritesFileManagerStorage: FavoritesStorageContract {
         do {
             let data = try encoder.encode(movies)
             try data.write(to: url)
-            try print(String(contentsOf: fileURL!).utf8)
         } catch {
             print("Error al guardar \(error.localizedDescription)")
         }

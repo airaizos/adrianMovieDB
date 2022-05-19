@@ -13,29 +13,21 @@ class FavoriteFileManagerProvider: FavoritesProviderContract {
         get {
             do {
                 let decoder = PropertyListDecoder()
-//                let origen = Bundle.main.bundleURL.appendingPathComponent("FavoritesMovies.plist")
- //               let ruta = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//                try FileManager.default.copyItem(at: origen, to: ruta)
-//                print("Ruta:\(ruta)COPIADO")
-                
                 let data = try Data(contentsOf: dataSourceURL)
                 
                 let decodedMovies = try! decoder.decode([Movie].self, from: data)
                 return decodedMovies
             } catch {
-                print(dataSourceURL)
-                print("error grave al copiar FavoritesMovies.plist \(error.localizedDescription)")
+                print("FavoritesMovies.plist \(error.localizedDescription)")
             }
             return []
         }
     }
     
     init() {
- //       let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let documentsPath = Bundle.main.bundleURL
         let moviesPath = documentsPath.appendingPathComponent("FavoritesMovies").appendingPathExtension("plist")
         dataSourceURL = moviesPath
-        print("moviesPath:\(moviesPath)")
         
     }
      
