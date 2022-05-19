@@ -44,7 +44,7 @@ extension FavoritesPresenter: FavoritesOutputContract {
     
     func getFavorites() {
         interactor?.output = self
-        interactor?.getFavorites(movies: favoriteMovies)
+        interactor?.getFavorite(movies: favoriteMovies)
     }
   
     func getFavorites(movies: [Movie]) {

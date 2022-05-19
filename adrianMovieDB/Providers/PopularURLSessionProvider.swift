@@ -26,7 +26,6 @@ class PopularURLSessionProvider: ProviderContract {
     let api = "https://api.themoviedb.org/3/"
     let apiKey = "1ed1b35f1dd69fbc9fdce2d768e3e870"
     let language = "es-ES"
-//    let region = "es-ES"
     var query: String {
         if self.query == "" {
             return ""

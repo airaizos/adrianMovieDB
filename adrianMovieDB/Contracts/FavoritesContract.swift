@@ -28,9 +28,9 @@ protocol FavoritesPresenterContract: AnyObject {
 }
 
 protocol FavoritesInteractorContract: AnyObject {
-    var favoritesProvider: FavoritesStorageContract? { get set }
+    var favoritesProvider: FavoritesProviderContract? { get set }
     var output: FavoritesOutputContract? { get set }
-    func getFavorites(movies: [Movie]) 
+    func getFavorite(movies: [Movie]) 
 }
 
 protocol FavoritesWireframeContract: AnyObject {
@@ -49,4 +49,8 @@ protocol FavoritesStorageContract: AnyObject {
 protocol FavoritesOutputContract: AnyObject {
     func getFavorites(movies: [Movie])
     func getFavoritesFail(movies: [Movie])
+}
+
+protocol FavoritesProviderContract: AnyObject {
+    func getFavorite(_ completion: @escaping(Result<[Movie],ProviderError>) -> Void)
 }

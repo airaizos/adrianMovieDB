@@ -8,11 +8,12 @@
 import Foundation
 
 class FavoritesInteractor: FavoritesInteractorContract {
-    var output: FavoritesOutputContract?
-    var favoritesProvider: FavoritesStorageContract?
     
-    func getFavorites(movies: [Movie]) {
-        favoritesProvider?.getFavorites({ result in
+    var output: FavoritesOutputContract?
+    var favoritesProvider: FavoritesProviderContract?
+    
+    func getFavorite(movies: [Movie]) {
+        favoritesProvider?.getFavorite({ result in
             switch result {
             case .success(let favoritesMovies):
                 self.output?.getFavorites(movies: favoritesMovies)
