@@ -102,8 +102,12 @@ extension PopularPresenter {
             favoriteProvider?.saveFavorite(movie)
             
             view?.setFavorite(true, at: indexPath)
-        } else if let index = filteredMovies.firstIndex(of: movie) {
-            filteredMovies.remove(at: index)
+        } else if let index = //filteredMovies.firstIndex(of: movie) {
+            //filteredMovies.remove(at: index)
+            favoritesMovies.firstIndex(of: movie) {
+                favoritesMovies.remove(at: index)
+            
+            //TODO: Este indice es
             favoriteProvider?.removeFavoriteAt(index)
             view?.setFavorite(false, at: indexPath)
         }

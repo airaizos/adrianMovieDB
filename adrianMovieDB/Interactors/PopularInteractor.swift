@@ -8,6 +8,7 @@
 import Foundation
 
 class PopularInteractor: PopularInteractorContract {
+    
     var popularProvider: ProviderContract?
     var output: PopularOutputContract?
     
@@ -37,6 +38,7 @@ class PopularInteractor: PopularInteractorContract {
             }
         })
     }
+     
 }
 
 extension PopularInteractor {
