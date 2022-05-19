@@ -71,17 +71,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14790389-B3F6-4F10-8E01-13C1F4378FCC"
+            uuid = "0E9CF49E-626D-4A45-8A1E-9903ED62CAAF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "adrianMovieDB/Providers/FavoritesFileManagerProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E9CF49E-626D-4A45-8A1E-9903ED62CAAF - 26037cc7729c6002"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "adrianMovieDB.FavoriteFileManagerProvider.__allocating_init() -&gt; adrianMovieDB.FavoriteFileManagerProvider"
+                  moduleName = "adrianMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/FavoritesFileManagerProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "0E9CF49E-626D-4A45-8A1E-9903ED62CAAF - b5b4183336e0d173"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "adrianMovieDB.FavoriteFileManagerProvider.init() -&gt; adrianMovieDB.FavoriteFileManagerProvider"
+                  moduleName = "adrianMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrian/Desktop/xCode/adrianMovieDB/adrianMovieDB/adrianMovieDB/Providers/FavoritesFileManagerProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "509024C6-DC16-459D-87DD-DD263F1A01EB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "adrianMovieDB/Providers/FavoritesFileManagerProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "init()"
-            landmarkType = "7">
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "userFavoritesMovies"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

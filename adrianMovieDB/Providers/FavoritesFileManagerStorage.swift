@@ -38,8 +38,9 @@ class FavoritesFileManagerStorage: FavoritesStorageContract {
     }
     
     private var fileURL: URL? {
-    let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension("\(fileName).plist")
-        print("\(String(describing: url))")
+  //  let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension("\(fileName).plist")
+        let url = Bundle.main.bundleURL.appendingPathComponent("FavoritesMovies").appendingPathExtension("plist")
+        print("Storage:\(String(describing: url))")
             return url
     }
     
