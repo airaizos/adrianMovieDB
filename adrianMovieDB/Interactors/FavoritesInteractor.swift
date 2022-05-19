@@ -21,7 +21,7 @@ class FavoritesInteractor: FavoritesInteractorContract {
             }
         })
     }
-    
+    /*
     private static var favoritesKey =  "favorite.movies.array"
     private let userDefaults: UserDefaults
     init(userDefaults: UserDefaults = UserDefaults.standard) {
@@ -36,5 +36,5 @@ class FavoritesInteractor: FavoritesInteractorContract {
             userDefaults.setValue(newValue, forKey: FavoritesInteractor.favoritesKey)
         }
     }
-    
+    */
 }
