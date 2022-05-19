@@ -4,8 +4,6 @@
 //
 //  Created by Adrian Iraizos Mendoza on 28/4/22.
 //
-//TODO: Problemas al añadir y borrar favoritas.
-//Estoy mezclando los índices
 import Foundation
 
 class FavoritesFileManagerStorage: FavoritesStorageContract {
