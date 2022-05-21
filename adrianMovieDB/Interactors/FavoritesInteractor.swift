@@ -12,7 +12,7 @@ class FavoritesInteractor: FavoritesInteractorContract {
     var output: FavoritesOutputContract?
     var favoritesProvider: FavoritesProviderContract?
     
-    func getFavorite(movies: [Movie]) {
+    func getFavorite() {
         favoritesProvider?.getFavorite({ result in
             switch result {
             case .success(let favoritesMovies):

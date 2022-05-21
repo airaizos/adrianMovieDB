@@ -30,7 +30,7 @@ protocol FavoritesPresenterContract: AnyObject {
 protocol FavoritesInteractorContract: AnyObject {
     var favoritesProvider: FavoritesProviderContract? { get set }
     var output: FavoritesOutputContract? { get set }
-    func getFavorite(movies: [Movie]) 
+    func getFavorite() 
 }
 
 protocol FavoritesWireframeContract: AnyObject {
