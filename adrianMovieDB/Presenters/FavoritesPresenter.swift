@@ -19,9 +19,8 @@ class FavoritesPresenter: FavoritesPresenterContract {
         favoriteMovies.count
     }
     
-    private var favoriteMovies = [Movie(id: 1, title: "title", favorite: true, year: "")] {
+    private var favoriteMovies = [Movie(id: 1, title: "title", favorite: true, year: "",image: "")] {
         didSet {
-            favoriteMovies = favoriteProvider?.favoriteMovies ?? [Movie(id: 2, title: "favoriteProvider", favorite: true, year: "")]
             view?.reloadData()
             }
     }
@@ -44,11 +43,11 @@ extension FavoritesPresenter: FavoritesOutputContract {
     
     func getFavorites() {
         interactor?.output = self
-        interactor?.getFavorites(movies: favoriteMovies)
+        interactor?.getFavorite()
+        view?.reloadData()
     }
   
     func getFavorites(movies: [Movie]) {
         self.favoriteMovies = movies
-        //vacio
     }
 }

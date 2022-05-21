@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-protocol FavoritesViewControllerContract {
+protocol FavoritesViewControllerContract: AnyObject {
     var presenter: FavoritesPresenterContract? { get set }
     func viewDidLoad()
    static func createFromStoryboard() -> FavoritesViewController
@@ -17,7 +17,7 @@ protocol FavoritesViewControllerContract {
     
 }
 
-protocol FavoritesPresenterContract {
+protocol FavoritesPresenterContract: AnyObject {
     var view: FavoritesViewControllerContract? { get set }
     var interactor: FavoritesInteractorContract? {  get set }
     var wireframe: FavoritesWireframeContract? {  get set }
@@ -27,18 +27,18 @@ protocol FavoritesPresenterContract {
     func getFavorites()
 }
 
-protocol FavoritesInteractorContract {
+protocol FavoritesInteractorContract: AnyObject {
     var favoritesProvider: FavoritesProviderContract? { get set }
     var output: FavoritesOutputContract? { get set }
-    func getFavorites(movies: [Movie]) 
+    func getFavorite() 
 }
 
-protocol FavoritesWireframeContract {
+protocol FavoritesWireframeContract: AnyObject {
     var view: UIViewController? { get set }
     func navigateTo()
 }
 
-protocol FavoritesProviderContract {
+protocol FavoritesStorageContract: AnyObject {
     var favoriteMovies: [Movie] { get set }
     func getFavorites(_ completion: @escaping(Result<[Movie],ProviderError>) -> Void)
     func saveFavorite(_ movie: Movie)
@@ -46,7 +46,11 @@ protocol FavoritesProviderContract {
     func copyFavorites(_ movies: [Movie]) 
 }
 
-protocol FavoritesOutputContract {
+protocol FavoritesOutputContract: AnyObject {
     func getFavorites(movies: [Movie])
     func getFavoritesFail(movies: [Movie])
+}
+
+protocol FavoritesProviderContract: AnyObject {
+    func getFavorite(_ completion: @escaping(Result<[Movie],ProviderError>) -> Void)
 }

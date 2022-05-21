@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoritesUserDefaultsProvider: FavoritesProviderContract {
+class FavoritesUserDefaultsProvider: FavoritesStorageContract {
     func copyFavorites(_ movies: [Movie]) {
         
     }

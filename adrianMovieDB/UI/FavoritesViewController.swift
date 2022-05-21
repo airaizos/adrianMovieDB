@@ -23,6 +23,10 @@ class FavoritesViewController: UIViewController {
         favoritesMoviesTableView.delegate = self
         presenter?.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.viewDidLoad()
+    }
 }
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {

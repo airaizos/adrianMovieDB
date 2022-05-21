@@ -8,7 +8,8 @@
 import Foundation
 
 class PopularInteractor: PopularInteractorContract {
-    var popularProvider: PopularProviderContract?
+    
+    var popularProvider: ProviderContract?
     var output: PopularOutputContract?
     
     private static var favoritesKey = "favorites.popular.movie.array"
@@ -20,21 +21,24 @@ class PopularInteractor: PopularInteractorContract {
     private var favorites : [String]   {
         get {
             userDefaults.stringArray(forKey: PopularInteractor.favoritesKey) ?? []
-            }
-        set {
-                userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
-            }
         }
+        set {
+            userDefaults.setValue(newValue, forKey: PopularInteractor.favoritesKey)
+        }
+    }
     
-    func fetchMovies() {
-        popularProvider?.fetchPopular( { result in
+    
+    func fetchMovies(page: Int, section: UrlParameter, query: String) {
+        
+        popularProvider?.fetchMovies(page: page, section: section, query: query, { result in
             switch result {
             case .success(let movies): self.output?.didFetch(movies: movies)
-            case .failure: self.output?.didFetchFail(movies: [Movie(id: 41490, title: "No se ha podido descargar", favorite: false, year: "")]
+            case .failure: self.output?.didFetchFail(movies: [Movie(id: 0, title: "No se ha podido descargar", favorite: false, year: "",image: "")]
             )
             }
         })
     }
+     
 }
 
 extension PopularInteractor {

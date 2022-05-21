@@ -18,37 +18,42 @@ protocol PopularViewControllerContract: UIViewController {
    static func createFromStoryboard() -> PopularViewController
 }
 
-protocol PopularPresenterContract {
+protocol PopularPresenterContract: AnyObject {
     var view: PopularViewControllerContract? { get set }
     var interactor: PopularInteractorContract? {  get set }
     var wireframe: PopularWireframeContract? {  get set }
     var numMovies: Int  { get }
-    
+    var isSearching: Bool { get set }
+    var page: Int { get set }
+    var searchPage: Int { get set }
+    func fetchSearchedMovies(with searchText: String)
+    func restartMovies()
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
     func didSearch(with searchText: String)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
-}
-
-protocol PopularInteractorContract {
-    var popularProvider: PopularProviderContract? { get set }
-    var output: PopularOutputContract? { get set }
     func fetchMovies()
-    
 }
 
-protocol PopularWireframeContract {
+protocol PopularInteractorContract: AnyObject {
+    var popularProvider: ProviderContract? { get set }
+    var output: PopularOutputContract? { get set }
+    func fetchMovies(page: Int, section: UrlParameter, query: String)
+
+}
+
+protocol PopularWireframeContract: AnyObject {
     var view: UIViewController? { get set }
     func navigateTo()
 }
 
-protocol PopularProviderContract {
-    func fetchPopular(_ completion: @escaping(Result<[Movie],ProviderError>)-> Void)
-    
+protocol ProviderContract: AnyObject {
+
+    func fetchMovies(page: Int, section: UrlParameter, query: String, _ completion: @escaping(Result<[Movie], ProviderError>) -> Void)
 }
 
-protocol PopularOutputContract {
+protocol PopularOutputContract: AnyObject {
     func didFetch(movies: [Movie])
     func didFetchFail(movies: [Movie])
     
@@ -59,16 +64,3 @@ protocol PopularTableViewDelegate {
     func didPressInFavorite(cell: MovieViewCell)
     
 }
-
-//FILM
-/*
-protocol PopularProviderFilmContract {
-    func fetchPopular(_ completion: @escaping(Result<[Film],ProviderError>)-> Void)
-    
-}
-
-protocol PopularOutputFilmContract {
-    func didFetch(movies: [Film])
-    func didFetchFail(movies: [Film])
-}
-*/

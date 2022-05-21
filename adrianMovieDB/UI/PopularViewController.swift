@@ -15,7 +15,6 @@ class PopularViewController: UIViewController {
     @IBOutlet weak var popularTableView: UITableView!
     
     func reloadData(){
-        
         DispatchQueue.main.async {
             self.popularTableView.reloadData()
         }
@@ -23,7 +22,7 @@ class PopularViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popularTableView.dataSource = self
         popularTableView.delegate = self
         presenter?.viewDidLoad()
@@ -32,37 +31,49 @@ class PopularViewController: UIViewController {
 }
 
 extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numMovies ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return presenter?.numMovies ?? 0
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as? MovieViewCell else {
             
-            guard let cellViewModel = presenter?.cellViewModel(at: indexPath), let cell = popularTableView.dequeueReusableCell(withIdentifier: "movieViewCell", for: indexPath) as? MovieViewCell else {
-        
-                fatalError()
-            }
-            cell.delegate = self
-            cell.isFavorite = presenter?.isFavorite(at: indexPath) ?? false
-            cell.configure(with: cellViewModel)
-            return cell
+            fatalError()
         }
+        cell.delegate = self
+        cell.isFavorite = presenter?.isFavorite(at: indexPath) ?? false
+        cell.configure(with: cellViewModel)
+        return cell
+    }
 }
 
 extension PopularViewController: PopularViewControllerContract {
-
-   static func createFromStoryboard() -> PopularViewController {
-       return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
-   }
+    
+    static func createFromStoryboard() -> PopularViewController {
+        return UIStoryboard(name: "PopularViewController", bundle: .main).instantiateViewController(withIdentifier: "PopularViewController") as! PopularViewController
+    }
 }
 
 //MARK: SearchBar
 extension PopularViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter?.didSearch(with: searchText)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchBar)
+        perform(#selector(self.reload(_:)), with: searchBar, afterDelay: 0.5)
     }
+    @objc func reload(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
+            presenter?.restartMovies()
+            return
+        }
+        if let term = searchBar.searchTextField.text {
+            presenter?.didSearch(with: term)
+            reloadData()
+        }
+    }
+    
 }
 
 // MARK: Favorites
@@ -79,3 +90,29 @@ extension PopularViewController: PopularTableViewDelegate {
         }
     }
 }
+
+//MARK: Scroll
+extension PopularViewController {
+    
+    func fetchMovies() {
+        presenter?.fetchMovies()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        if maximumOffset - currentOffset <= 50 {
+            
+            if presenter?.isSearching == true {
+                if let searchedText = searchBar.text {
+                    self.searchBar(searchBar, textDidChange: searchedText)
+                }
+            } else {
+                self.fetchMovies()
+            }
+        }
+    }
+}
+
+

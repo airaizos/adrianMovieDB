@@ -8,19 +8,20 @@
 import Foundation
 
 class FavoritesInteractor: FavoritesInteractorContract {
+    
     var output: FavoritesOutputContract?
     var favoritesProvider: FavoritesProviderContract?
     
-    func getFavorites(movies: [Movie]) {
-        favoritesProvider?.getFavorites({ result in
+    func getFavorite() {
+        favoritesProvider?.getFavorite({ result in
             switch result {
             case .success(let favoritesMovies):
                 self.output?.getFavorites(movies: favoritesMovies)
-            case .failure: self.output?.getFavoritesFail(movies: [Movie(id: 41490, title: "No se ha podido descargar", favorite: false, year: "")])
+            case .failure: self.output?.getFavoritesFail(movies: [Movie(id: 41490, title: "No se ha podido descargar", favorite: false, year: "", image: "")])
             }
         })
     }
-    
+    /*
     private static var favoritesKey =  "favorite.movies.array"
     private let userDefaults: UserDefaults
     init(userDefaults: UserDefaults = UserDefaults.standard) {
@@ -35,5 +36,5 @@ class FavoritesInteractor: FavoritesInteractorContract {
             userDefaults.setValue(newValue, forKey: FavoritesInteractor.favoritesKey)
         }
     }
-    
+    */
 }
