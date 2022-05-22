@@ -12,7 +12,7 @@ struct MovieDetailViewModel {
     let id: Int
     let year: String?
     let isFavorite: Bool
-    let image: URL?
+    let image: String?
     let title: String
     let overview: String
 }
@@ -45,7 +45,8 @@ extension MovieDetailViewController {
         isFavoriteImage.image = UIImage(systemName: "star")
         titleLabel.text = viewModel?.title
         overviewLabel.text = viewModel?.overview
-        imageLabel.load(url: viewModel?.image ?? URL(string: "tmdb")!)
+        
+        imageLabel.loadImageUsingCache(withUrl: viewModel?.image ?? "")
     }
     
     static func create() -> MovieDetailViewController {

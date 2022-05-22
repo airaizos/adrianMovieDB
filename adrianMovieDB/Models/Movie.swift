@@ -44,6 +44,6 @@ extension Movie {
     }
     
     var toMovieDetailViewModel: MovieDetailViewModel {
-        MovieDetailViewModel(originalTitle: originalTitle, id: id, year: year!.isEmpty ? "No year" : year!, isFavorite: favorite, image: image!.isEmpty ? URL(string: "imbd") : URL(string: "https://image.tmdb.org/t/p/w500\(image!)"), title: title, overview: overview)
+        MovieDetailViewModel(originalTitle: originalTitle, id: id, year: year!.isEmpty ? "No year" : year!, isFavorite: favorite, image: "https://image.tmdb.org/t/p/w500\(image!)", title: title, overview: overview)
     }
 }
