@@ -9,9 +9,9 @@ import UIKit
 
 struct MovieDetailViewModel {
     let originalTitle: String
-    let id: String
+    let id: Int
     let year: String?
-    let isFavorite: String
+    let isFavorite: Bool
     let image: URL?
     let title: String
     let overview: String
@@ -22,7 +22,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var originalTitleLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var isFavoriteLabel: UILabel!
+    @IBOutlet weak var isFavoriteImage: UIImageView!
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -38,11 +38,17 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController {
     func configure() {
         originalTitleLabel.text = viewModel?.originalTitle
-        idLabel.text = viewModel?.id
+        idLabel.text = "\(viewModel?.id ?? 0)"
         yearLabel.text = viewModel?.year
-        isFavoriteLabel.text = viewModel?.isFavorite
+     //   isFavoriteImage.image = viewModel!.isFavorite ? (UIImage(systemName: "star.fill")) : (UIImage(systemName: "star"))
+        
+        isFavoriteImage.image = UIImage(systemName: "star")
         titleLabel.text = viewModel?.title
         overviewLabel.text = viewModel?.overview
         imageLabel.load(url: viewModel?.image ?? URL(string: "tmdb")!)
+    }
+    
+    static func create() -> MovieDetailViewController {
+        return UIStoryboard(name: "MovieDetailViewController", bundle: .main).instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
     }
 }

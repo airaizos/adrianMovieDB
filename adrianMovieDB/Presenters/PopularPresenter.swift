@@ -68,6 +68,11 @@ extension PopularPresenter: PopularOutputContract {
             return }
         view?.setFavorite(true, at: IndexPath(row: index, section: 0))
     }
+    
+    func didSelectMovie(at indexPath: IndexPath) {
+        let movie = movies[indexPath.row]
+        wireframe?.navigateTo(to: movie)
+    }
 }
 
 //MARK: SearchBar

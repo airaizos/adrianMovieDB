@@ -17,7 +17,7 @@ class FavoritesInteractor: FavoritesInteractorContract {
             switch result {
             case .success(let favoritesMovies):
                 self.output?.getFavorites(movies: favoritesMovies)
-            case .failure: self.output?.getFavoritesFail(movies: [Movie(id: 41490, title: "No se ha podido descargar", favorite: false, year: "", image: "")])
+            case .failure: self.output?.getFavoritesFail(movies: [Movie(id: 0, title: "title", originalTitle: "originalTitle", favorite: false, year: "year", image: "image", overview: "overview")])
             }
         })
     }

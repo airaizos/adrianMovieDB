@@ -11,7 +11,15 @@ import UIKit
 class PopularWireframe: PopularWireframeContract {
     var view: UIViewController?
     
-    func navigateTo() {
+    func navigateTo(to movie: Movie) {
+        DispatchQueue.main.async {
+            let viewController = MovieDetailControllerBuilder().build(viewModel: movie.toMovieDetailViewModel)
+            
+            if let navigationController = self.view?.navigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            } else {
+                self.view?.present(viewController, animated: true)
+            }
+        }
     }
-    
 }
