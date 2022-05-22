@@ -40,13 +40,13 @@ extension MovieDetailViewController {
         originalTitleLabel.text = viewModel?.originalTitle
         idLabel.text = "\(viewModel?.id ?? 0)"
         yearLabel.text = viewModel?.year
-     //   isFavoriteImage.image = viewModel!.isFavorite ? (UIImage(systemName: "star.fill")) : (UIImage(systemName: "star"))
-        
-        isFavoriteImage.image = UIImage(systemName: "star")
+     isFavoriteImage.image = viewModel!.isFavorite ? (UIImage(systemName: "star.fill")) : (UIImage(systemName: "star"))
+
         titleLabel.text = viewModel?.title
         overviewLabel.text = viewModel?.overview
         
         imageLabel.loadImageUsingCache(withUrl: viewModel?.image ?? "")
+        print("\(String(describing: viewModel?.image))")
     }
     
     static func create() -> MovieDetailViewController {
