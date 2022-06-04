@@ -30,6 +30,7 @@ protocol PopularPresenterContract: AnyObject {
     func restartMovies()
     func viewDidLoad()
     func cellViewModel(at IndexPath: IndexPath) -> MovieViewCellModel
+    func didSelectMovie(at indexPath: IndexPath)
     func didSearch(with searchText: String)
     func didSelectFavorite(at indexPath: IndexPath)
     func isFavorite(at indexPath: IndexPath) -> Bool
@@ -45,7 +46,7 @@ protocol PopularInteractorContract: AnyObject {
 
 protocol PopularWireframeContract: AnyObject {
     var view: UIViewController? { get set }
-    func navigateTo()
+    func navigateTo(to movie: Movie)
 }
 
 protocol ProviderContract: AnyObject {

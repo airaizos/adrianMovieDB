@@ -32,6 +32,10 @@ class PopularViewController: UIViewController {
 
 extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectMovie(at: indexPath)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.numMovies ?? 0
     }
@@ -47,6 +51,7 @@ extension PopularViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: cellViewModel)
         return cell
     }
+    
 }
 
 extension PopularViewController: PopularViewControllerContract {

@@ -19,7 +19,7 @@ class FavoritesPresenter: FavoritesPresenterContract {
         favoriteMovies.count
     }
     
-    private var favoriteMovies = [Movie(id: 1, title: "title", favorite: true, year: "",image: "")] {
+    private var favoriteMovies = [Movie(id: 0, title: "title", originalTitle: "originalTitle", favorite: false, year: "year", image: "image", overview: "overview")] {
         didSet {
             view?.reloadData()
             }
